@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Hexo">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/07/28/py5/">
+
+
+<meta name="description" content="常用函数 详细可查阅https://docs.python.org/zh-cn/3/library/turtle.html  fd(dis)——前进dis距离，forwardbk(dis)——后退dis距离，backwardlt(90)——左转90度，leftrt(90)——右转90度，rightgoto(x，y)——移动到(x，y)，是否划线由笔抬起或落下决定setx(x)——移动x坐标sety">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/07/28/py5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="常用函数 详细可查阅https://docs.python.org/zh-cn/3/library/turtle.html  fd(dis)——前进dis距离，forwardbk(dis)——后退dis距离，backwardlt(90)——左转90度，leftrt(90)——右转90度，rightgoto(x，y)——移动到(x，y)，是否划线由笔抬起或落下决定setx(x)——移动x坐标sety">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-07T15:57:43.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="常用函数 详细可查阅https://docs.python.org/zh-cn/3/library/turtle.html  fd(dis)——前进dis距离，forwardbk(dis)——后退dis距离，backwardlt(90)——左转90度，leftrt(90)——右转90度，rightgoto(x，y)——移动到(x，y)，是否划线由笔抬起或落下决定setx(x)——移动x坐标sety">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title>  - Hexo </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Hexo</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          
+        
+      </h1>
+
+      <time class="post-time">
+          Jul 28 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><blockquote>
+<p>详细可查阅<a href="https://docs.python.org/zh-cn/3/library/turtle.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/library/turtle.html</a></p>
+</blockquote>
+<p>fd(dis)——前进dis距离，forward<br>bk(dis)——后退dis距离，backward<br>lt(90)——左转90度，left<br>rt(90)——右转90度，right<br>goto(x，y)——移动到(x，y)，是否划线由笔抬起或落下决定<br>setx(x)——移动x坐标<br>sety(y)——移动y坐标<br>seth(90)——旋转海龟的朝向，值为0：上；270：下；180：左；90：右<br>home()——将海龟归位<br>circle(radius，extent圆心角，steps边的数量)——圆心在海龟的左边，圆实际上由多边形转换而来<br>dot(size&gt;=1，color)——画一个点<br>pu()——抬起笔，penup<br>pd()——放下笔，pendown<br>undo()——撤销一次动作，可以做逆向动画<br>speed(6)——参数0-10逐渐加快,6为正常<br>pos()——返回当前坐标为一个tuple，position<br>xcor(x)——返回或设置x坐标<br>ycor(y)——返回或设置y坐标<br>heading()——返回当前朝向<br>distance(x,y)——计算当前海龟到(x,y)的直线距离<br>width()——设置线条宽度<br>pen()——设置或返回画笔的当前参数，可以保留以后续恢复<br>isdown()——画笔是否落下，注意没有isup函数<br>pencolor(‘#74a7b9’)——画笔颜色<br>fillcolor(‘#74a7b9’)——填充颜色<br>color(pen,fill)——同时设置画笔和填充颜色<br>begin_fill()——填充图形前调用<br>end_fill()——结束填充后调用<br>write(‘text’,move,align,font)</p>
+<ul>
+<li>move：写完后是否移动画笔到右下角；align：对齐方式；font：一个tuple(‘Courier New’,16,’normal’)</li>
+</ul>
+<p>ht()——隐藏海龟，显著加快绘制速度，hideturtle<br>st()——显示海龟，showturtle<br>isvisible()——海龟是否可见，返回布尔值<br>shape()——设置或返回海龟的形状，arrow，classic，turtle，square<br>colormode(255)——设置colormode，可以为1或255<br>bgcolor(‘#ffffff’)——窗口的背景色<br>bgpic(‘bg.gif’)——背景图片，只支持gif格式，只改后缀名是没有用的!!!<br>delay()——动画延迟，毫秒<br>numinput(title, prompt, default=None, minval=None, maxval=None)——弹出窗口接受数字输入<br>textinput(title, prompt)——弹出窗口接收文本输入<br>title(‘title’)——GUI窗口的标题<br>done()——必须作为绘图结束的函数调用</p>
+<h2 id="常用事件"><a href="#常用事件" class="headerlink" title="常用事件"></a>常用事件</h2><p>listen()——开始监听键盘事件<br>ontimer(func，t)——定时器，在t时间之后执行func函数，毫秒<br>1.鼠标事件</p>
+<ul>
+<li>func函数必须有两个形参x，y，传入鼠标的坐标</li>
+<li>key=1默认为左键</li>
+</ul>
+<p>onclick(func，key=1)——点击海龟时执行func函数，1表示左键<br>onscreenclick(func，key=1)——屏幕被点击时执行func函数<br>onrelease(func，key=1)——鼠标释放后执行func函数<br>ondrag(func，key=1)——鼠标点击后拖动时执行func函数<br>2.键盘事件</p>
+<ul>
+<li>使用键盘事件之前必须调用listen函数</li>
+</ul>
+<p>onkeyrelease(func，key)——指定key键释放时调用func函数<br>onkeypress(func，key)——指定key键按下时调用func函数</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/07/28/py6/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default"></span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/07/28/py4/">
+        <span class="next-text nav-default"></span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">John Doe.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

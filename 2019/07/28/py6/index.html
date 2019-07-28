@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Hexo">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/07/28/py6/">
+
+
+<meta name="description" content="字符串 s表示一个字符串文本s.isalpha()  如果s中全部是字母，则返回True，否则False   s.isdigit()  如果s中全部是数字，则返回True，否则False  s.split(‘str’)  按照str作为分隔符进行分割，返回一个tuple，注意str可能不止是一个字符  s.join(iterable)  将可迭代对象中str字符串以s为分隔符，连接成一个新的字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/07/28/py6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="字符串 s表示一个字符串文本s.isalpha()  如果s中全部是字母，则返回True，否则False   s.isdigit()  如果s中全部是数字，则返回True，否则False  s.split(‘str’)  按照str作为分隔符进行分割，返回一个tuple，注意str可能不止是一个字符  s.join(iterable)  将可迭代对象中str字符串以s为分隔符，连接成一个新的字符串">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-07T15:57:25.479Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="字符串 s表示一个字符串文本s.isalpha()  如果s中全部是字母，则返回True，否则False   s.isdigit()  如果s中全部是数字，则返回True，否则False  s.split(‘str’)  按照str作为分隔符进行分割，返回一个tuple，注意str可能不止是一个字符  s.join(iterable)  将可迭代对象中str字符串以s为分隔符，连接成一个新的字符串">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title>  - Hexo </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Hexo</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          
+        
+      </h1>
+
+      <time class="post-time">
+          Jul 28 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><blockquote>
+<p>s表示一个字符串文本<br>s.isalpha()</p>
+<ul>
+<li>如果s中全部是字母，则返回True，否则False</li>
+</ul>
+</blockquote>
+<p>s.isdigit()</p>
+<ul>
+<li>如果s中全部是数字，则返回True，否则False</li>
+</ul>
+<p>s.split(‘str’)</p>
+<ul>
+<li>按照str作为分隔符进行分割，返回一个tuple，注意str可能不止是一个字符</li>
+</ul>
+<p>s.join(iterable)</p>
+<ul>
+<li>将可迭代对象中str字符串以s为分隔符，连接成一个新的字符串</li>
+</ul>
+<p>s.isupper()</p>
+<ul>
+<li>s中的字母全为大写(不管其他字符)，就返回True，否则返回False</li>
+</ul>
+<p>s.islower()</p>
+<ul>
+<li>s中的字母全为小写(不管其他字符)，就返回True，否则返回False</li>
+</ul>
+<p>s.lstrip(‘ ‘)</p>
+<ul>
+<li>去掉字符串左边所有的空格字符，遇到非空格字符就结束</li>
+</ul>
+<p>s.rstrip(‘ ‘)</p>
+<ul>
+<li>去掉字符串右边所有的空格字符，遇到非空格字符就结束</li>
+</ul>
+<p>s.ljust(width, [fill])</p>
+<ul>
+<li>将字符串左对齐扩充为width位，右边用fill填充，默认空格</li>
+</ul>
+<p>s.rjust(width, [fill])</p>
+<ul>
+<li>将字符串右对齐扩充为width位，左边用fill填充，默认空格</li>
+</ul>
+<p>s.center(width,[fill])</p>
+<ul>
+<li>将字符串居中对齐，两边用fill填充，默认空格</li>
+</ul>
+<p>s.lower()</p>
+<ul>
+<li>将字符串中的字母全部转换为小写</li>
+</ul>
+<p>s.upper()</p>
+<ul>
+<li>将字符串中的字母全部转换为大写</li>
+</ul>
+<p>s.capitalize()</p>
+<ul>
+<li>首字母大小，其余小写，首字符若不是字母，则啥也不干</li>
+</ul>
+<p>s.find(sub)</p>
+<ul>
+<li>返回找到的子字符串的索引，未找到则返回-1</li>
+</ul>
+<p>s.replace(old,new,[count])</p>
+<ul>
+<li>将字符串中的old全部转换为new，还可以指定替换的次数</li>
+</ul>
+<p>s.title()</p>
+<ul>
+<li>将字符串中的每个单词的首字母大写，其余小写</li>
+</ul>
+<h2 id="常用内置函数"><a href="#常用内置函数" class="headerlink" title="常用内置函数"></a>常用内置函数</h2><p>bin(x)</p>
+<ul>
+<li>将一个<strong>整数</strong>转换成二进制字符串</li>
+</ul>
+<p>hex(x)</p>
+<ul>
+<li>将一个<strong>整数</strong>转换成十六进制字符串</li>
+</ul>
+<p>int(x)</p>
+<ul>
+<li>x若是浮点数，则向0舍入</li>
+<li>int(str, base=16)，将字符串按照16进制解析，返回十进制整数</li>
+</ul>
+<p>chr(x)</p>
+<ul>
+<li>返回这个整数所表示的Unicode字符</li>
+</ul>
+<p>ord(ch)</p>
+<ul>
+<li>返回这个Unicode字符的整数编码</li>
+</ul>
+<p>divmod(a,b)</p>
+<ul>
+<li>返回一个tuple——(a//b, a%b)</li>
+</ul>
+<p>filter(func，iterable)</p>
+<ul>
+<li>丢弃iterable中那些是func返回为False的元素，重新组成一个iterable</li>
+</ul>
+<p>float(x)</p>
+<ul>
+<li>将整数数字或者字符串转换成浮点数，可以有+/-/.，但若包含之外的非数字字符会报错</li>
+</ul>
+<p>input([prompt])</p>
+<ul>
+<li>先输出prompt，末尾不带换行符，然后从标准输入中读取一行，将其转换成字符串</li>
+</ul>
+<p>len(s)</p>
+<ul>
+<li>返回一个可迭代对象的元素个数</li>
+</ul>
+<p>list(iterable)</p>
+<ul>
+<li>将一个可迭代对象转换成列表，常用来转换字符串</li>
+</ul>
+<p>max(a，b，c……)</p>
+<ul>
+<li>返回其中的最大值</li>
+<li>max(iterable)——返回这个可迭代对象中的最大值</li>
+</ul>
+<p>min(a，b，c……)</p>
+<ul>
+<li>返回其中的最小值</li>
+<li>min(iterable)——返回这个可迭代对象中的最小值</li>
+</ul>
+<p>next(iterator)</p>
+<ul>
+<li>获取这个迭代器的下一个元素</li>
+</ul>
+<p>range(x)<br>range(start，stop，step)</p>
+<ul>
+<li>返回一个从0<del>x-1且步长为1，或者，从start</del>stop且步长为step的可迭代对象，常用在for……in循环中</li>
+</ul>
+<p>round(num，precision)</p>
+<ul>
+<li>将浮点数num舍入到小数点后precision位</li>
+<li>round(x)，若x刚好在两个整数中间，则选择偶数，否则四舍五入</li>
+<li>round对整数并不起作用，应该使用<code>&#39;%.2f&#39; % 43</code></li>
+<li><strong>注意round并不总是准确的</strong>，由于浮点数并不能精确地表示</li>
+</ul>
+<p>sum(iterable)</p>
+<ul>
+<li>对该对象中的项求和返回，期望是一个数字列表</li>
+</ul>
+<p>type(x)</p>
+<ul>
+<li>返回一个值的类型</li>
+</ul>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/07/28/sicknotepad/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default"></span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/07/28/py5/">
+        <span class="next-text nav-default"></span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">John Doe.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

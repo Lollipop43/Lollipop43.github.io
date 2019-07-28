@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Hexo">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/07/28/dp/">
+
+
+<meta name="description" content="最近在学习动态规划算法，课堂上的时间根本不够消化，一知半解的恶果终于在做习题时暴露了出来。虽然能通过那么几个点，但就是不能完全通过，于是就印证了自身能力不足和高级算法的优越性。动态规划只是一种算法思想，并不能告诉你某个特定的问题应该怎么求解，所以网上的书上的学习资料大都是对某种类型的问题做以分析，于是在此好好学习一下有关动态规划的内容，并整理一下经典的问题模型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2019/07/28/dp/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最近在学习动态规划算法，课堂上的时间根本不够消化，一知半解的恶果终于在做习题时暴露了出来。虽然能通过那么几个点，但就是不能完全通过，于是就印证了自身能力不足和高级算法的优越性。动态规划只是一种算法思想，并不能告诉你某个特定的问题应该怎么求解，所以网上的书上的学习资料大都是对某种类型的问题做以分析，于是在此好好学习一下有关动态规划的内容，并整理一下经典的问题模型。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="e:%5Ctmp%5Cfigures%5C3269787075.png">
+<meta property="og:image" content="e:%5Ctmp%5Cfigures%5C1830180776.jpg">
+<meta property="og:updated_time" content="2019-07-07T15:59:24.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="最近在学习动态规划算法，课堂上的时间根本不够消化，一知半解的恶果终于在做习题时暴露了出来。虽然能通过那么几个点，但就是不能完全通过，于是就印证了自身能力不足和高级算法的优越性。动态规划只是一种算法思想，并不能告诉你某个特定的问题应该怎么求解，所以网上的书上的学习资料大都是对某种类型的问题做以分析，于是在此好好学习一下有关动态规划的内容，并整理一下经典的问题模型。">
+<meta name="twitter:image" content="e:%5Ctmp%5Cfigures%5C3269787075.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title>  - Hexo </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">Hexo</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          
+        
+      </h1>
+
+      <time class="post-time">
+          Jul 28 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>最近在学习动态规划算法，课堂上的时间根本不够消化，一知半解的恶果终于在做习题时暴露了出来。虽然能通过那么几个点，但就是不能完全通过，于是就印证了自身能力不足和高级算法的优越性。<br>动态规划只是一种算法思想，并不能告诉你某个特定的问题应该怎么求解，所以网上的书上的学习资料大都是对某种类型的问题做以分析，于是在此好好学习一下有关动态规划的内容，并整理一下经典的问题模型。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><blockquote>
+<p>Stanford的一个slide：<a href="http://120.78.88.54/usr/uploads/2019/05/04-dynamic-programming.pdf" target="_blank" rel="noopener">dynamic-programming.pdf</a><br><a href="https://blog.csdn.net/iva_brother/article/details/84037050" target="_blank" rel="noopener">动态规划：从入门到放弃</a><br><a href="https://blog.csdn.net/u013309870/article/details/75193592" target="_blank" rel="noopener">算法-动态规划 Dynamic Programming</a><br><a href="https://www.cnblogs.com/wuyuegb2312/p/3281264.html#i1" target="_blank" rel="noopener">常见的动态规划问题</a></p>
+</blockquote>
+<h3 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h3><p>①最优子结构</p>
+<ul>
+<li>原问题的最优解包含了子问题的最优解</li>
+</ul>
+<p>②重叠子问题</p>
+<ul>
+<li>使用递归时，有些子问题被重复计算多次</li>
+</ul>
+<h3 id="与分治相比"><a href="#与分治相比" class="headerlink" title="与分治相比"></a>与分治相比</h3><p>共同点：</p>
+<ul>
+<li>都是将原问题分而治之</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>分治法将分解后的子问题看成相对独立的，然后通过递归求解</li>
+<li>动态规划将分解后的子问题看成是相互有联系、有重叠部分，通常迭代求解</li>
+</ul>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><blockquote>
+<ol>
+<li>Define subproblems</li>
+<li>Write down the recurrence that relates subproblems</li>
+<li>Recognize and solve the base cases</li>
+</ol>
+</blockquote>
+<p><strong>Each step is very important!!</strong></p>
+<hr>
+<h2 id="问题模型"><a href="#问题模型" class="headerlink" title="问题模型"></a>问题模型</h2><h3 id="Fibonacci数列"><a href="#Fibonacci数列" class="headerlink" title="Fibonacci数列"></a>Fibonacci数列</h3><p>斐波那契数列的递归公式为<code>F(N)=F(N-1)+F(N-2)!</code><br><a href="http://120.78.88.54/usr/uploads/2019/04/3182489616.png" target="_blank" rel="noopener">feibonacci.png</a><br>多余的计算次数随着递归层次的加深爆炸式增长，如果每次计算之前都能记住前两个值，那么利用这两个值就可以计算当前值，从而迭代下去。</p>
+<blockquote>
+<p>keypoint:记住F(N-1)和F(N-2)的值 ，因此用两个变量来保存，循环计算</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">Fibonacci</span> <span class="params">( <span class="keyword">int</span> N )</span> </span></span><br><span class="line"><span class="function"></span>&#123;   <span class="keyword">int</span>  i, Last, NextToLast, Answer; </span><br><span class="line">    <span class="keyword">if</span> ( N &lt;= <span class="number">1</span> )  <span class="keyword">return</span>  <span class="number">1</span>; </span><br><span class="line">    Last = NextToLast = <span class="number">1</span>;    <span class="comment">/* F(0) = F(1) = 1 */</span></span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">2</span>; i &lt;= N; i++ ) &#123; </span><br><span class="line">        Answer = Last + NextToLast;   <span class="comment">//当前值等于前面两个值之和</span></span><br><span class="line">        <span class="comment">/* F(i) = F(i-1) + F(i-2) */</span></span><br><span class="line">        NextToLast = Last; Last = Answer;  <span class="comment">//记住前面的两个值，“前面”是相对的，因此两个变量就可以</span></span><br><span class="line">        <span class="comment">/* update F(i-1) and F(i-2) */</span></span><br><span class="line">    &#125;  <span class="comment">/* end-for */</span></span><br><span class="line">    <span class="keyword">return</span>  Answer; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个栗子是非常简单易懂的。</p>
+<h3 id="最优二叉搜索树"><a href="#最优二叉搜索树" class="headerlink" title="最优二叉搜索树"></a>最优二叉搜索树</h3><p>给定一些单词w1,w2,w3…wn和它们出现的概率p1,p2,p3…pn,找到一种方法存储这些单词在一棵BST中使得总的查找时间最小</p>
+<p>假设我们这个单词序列是w<sub>left</sub>,w<sub>left+1</sub>，……，w<sub>right-1</sub>，w<sub>right</sub>，设树的根是w<sub>i</sub>(left&lt;=i&lt;=right)，那么左子树必须包含w<sub>left</sub>,w<sub>i-1</sub>，右子树必须包含w<sub>i</sub>,w<sub>right</sub>，同时这两棵子树还必须是最优的<br><img src="E:%5Ctmp%5Cfigures%5C3269787075.png" alt="Snipaste_2019-05-02_14-03-30.png"><br>左子树的代价相对于它的根为C<sub>left,i-1</sub>，右子树的代价相对于它的根为C<sub>i+1,right</sub><br>如图所示，这两棵树的每个节点从wi开始都比从它们对应的根开始深一层，因此我们必须加上sleft = p<sub>left</sub>+p<sub>left+1</sub>+…+p<sub>i-1</sub>和sright = p<sub>i+1</sub>+…+p<sub>right-1</sub>+p<sub>right</sub><br><img src="E:%5Ctmp%5Cfigures%5C1830180776.jpg" alt="P90502-141939.jpg"></p>
+<h3 id="矩阵链乘"><a href="#矩阵链乘" class="headerlink" title="矩阵链乘"></a>矩阵链乘</h3><p>设有四个矩阵ABCD，维数分别是50<em>10，10</em>40，40<em>30，30</em>5，矩阵乘法不是可交换的，但是可结合的，因此通过添加括号可以明显影响计算乘法的次数</p>
+<ul>
+<li>阶数为p<em>q和阶数为q</em>r的矩阵相乘，需要的乘法次数是p*q*r<br>①A((BC)D)</li>
+<li>10*40*30+10*30*5+50*10*5 = 16000<br>②(A(BC))D</li>
+<li>10*40*30+50*10*30+50*30*5 = 34500<br>③(AB)CD</li>
+<li>50*10*40+50*40*30+50*30*5 = 87500<br>④AB(CD)</li>
+<li>40*30*5+50*10*40+50*40*5 = 36000<br>⑤A(B(CD))</li>
+<li>40*30*5+10*40*5+50*10*5 = 10500<br>可以看到不同的运算顺序对与乘法次数的影响是显著的，因此我们需要讨论如何找到最适合的运算顺序</li>
+</ul>
+<p>设m<sub>left,right</sub>是进行A<sub>left</sub>A<sub>left+1</sub>…A<sub>right-1</sub>A<sub>right</sub>所需要的乘法次数，若left&lt;right，则</p>
+<center>M<sub>left,right</sub> = min{M<sub>left,i</sub>+M<sub>i+1,right</sub>+c<sub>left-1</sub>c<sub>i</sub>c<sub>right</sub>}</center>(left <= i < right)>keypoint：将原问题划分为最优子问题的组合
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/* r contains number of columns for each of the N matrices */ </span><br><span class="line">/* r[ 0 ] is the number of rows in matrix 1 */ </span><br><span class="line">/* Minimum number of multiplications is left in M[ 1 ][ N ] */ </span><br><span class="line">void OptMatrix( const long r[ ], int N, TwoDimArray M ) </span><br><span class="line">&#123;   int  i, j, k, L; </span><br><span class="line">    long  ThisM; </span><br><span class="line">    for( i = 1; i &lt;= N; i++ )   M[ i ][ i ] = 0; </span><br><span class="line">    for( k = 1; k &lt; N; k++ ) /* k = j - i */ </span><br><span class="line">        for( i = 1; i &lt;= N - k; i++ ) &#123; /* For each position */ </span><br><span class="line">	j = i + k;    M[ i ][ j ] = Infinity; </span><br><span class="line">	for( L = i; L &lt; j; L++ ) &#123; </span><br><span class="line">	    ThisM = M[ i ][ L ] + M[ L + 1 ][ j ] </span><br><span class="line">		    + r[ i - 1 ] * r[ L ] * r[ j ]; </span><br><span class="line">	    if ( ThisM &lt; M[ i ][ j ] )  /* Update min */ </span><br><span class="line">		M[ i ][ j ] = ThisM; </span><br><span class="line">	&#125;  /* end for-L */</span><br><span class="line">        &#125;  /* end for-Left */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</=>
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/07/28/htmlcss/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default"></span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/07/28/des/">
+        <span class="next-text nav-default"></span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">John Doe.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
