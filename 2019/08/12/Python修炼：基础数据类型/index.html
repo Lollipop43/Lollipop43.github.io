@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="Python修炼：基础数据类型">
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="归">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/08/12/Python修炼：基础数据类型/">
+
+
+<meta name="description" content="字符串1.单引号和双引号均可 2.字符串的引号之前加上r表示不要转义 3.&amp;#39;&amp;#39;&amp;#39;这里是字符串&amp;#39;&amp;#39;&amp;#39;表示多行字符串 4.a=&amp;#39;ABC&amp;#39;表示创建一个字符串对象，并将其赋值给a变量  因此这段代码的执行结果应该能明了 1234a = &amp;apos;ABC&amp;apos;b = aa = &amp;apos;XYZ&amp;apos;print(b)  结果应该是">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python修炼：基础数据类型">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/Python修炼：基础数据类型/index.html">
+<meta property="og:site_name" content="归">
+<meta property="og:description" content="字符串1.单引号和双引号均可 2.字符串的引号之前加上r表示不要转义 3.&amp;#39;&amp;#39;&amp;#39;这里是字符串&amp;#39;&amp;#39;&amp;#39;表示多行字符串 4.a=&amp;#39;ABC&amp;#39;表示创建一个字符串对象，并将其赋值给a变量  因此这段代码的执行结果应该能明了 1234a = &amp;apos;ABC&amp;apos;b = aa = &amp;apos;XYZ&amp;apos;print(b)  结果应该是">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T05:00:59.152Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python修炼：基础数据类型">
+<meta name="twitter:description" content="字符串1.单引号和双引号均可 2.字符串的引号之前加上r表示不要转义 3.&amp;#39;&amp;#39;&amp;#39;这里是字符串&amp;#39;&amp;#39;&amp;#39;表示多行字符串 4.a=&amp;#39;ABC&amp;#39;表示创建一个字符串对象，并将其赋值给a变量  因此这段代码的执行结果应该能明了 1234a = &amp;apos;ABC&amp;apos;b = aa = &amp;apos;XYZ&amp;apos;print(b)  结果应该是">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> Python修炼：基础数据类型 - 归 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">归</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Python修炼：基础数据类型
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 12 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>1.单引号和双引号均可</p>
+<p>2.字符串的引号之前加上r表示不要转义</p>
+<p>3.<code>&#39;&#39;&#39;这里是字符串&#39;&#39;&#39;</code>表示多行字符串</p>
+<p>4.<code>a=&#39;ABC&#39;</code>表示创建一个字符串对象，并将其赋值给a变量</p>
+<ul>
+<li><p>因此这段代码的执行结果应该能明了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = &apos;ABC&apos;</span><br><span class="line">b = a</span><br><span class="line">a = &apos;XYZ&apos;</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果应该是<code>ABC</code>而不是<code>XYZ</code>，因为这是两个不同的对象，对应不同的内存</p>
+</li>
+</ul>
+<p>5.常用函数</p>
+<p>①<code>ord(&#39;A&#39;)</code>——获取字符的十进制Unicode编码</p>
+<p>②<code>chr(65)</code>——将十进制Unicode编码转换为字符</p>
+<p>③<code>len(&#39;ABC&#39;)</code>——获取字符串长度</p>
+<p>④<code>&#39;ABC&#39;.encode(&#39;ascii&#39;)</code>——使用指定编码表示字符串</p>
+<p>⑤<code>&#39;ABC&#39;.decode(&#39;ascii&#39;,errors=&#39;ignore&#39;)</code>——使用指定编码表示字符串，并且忽略其中的错误编码，比如中文字符不能用ascii编码。</p>
+<p>⑥<code>&#39;name:{0},age:{1}&#39;.format(&#39;torcy&#39;, 18)</code>——格式化字符串</p>
+<p>6.字符串默认使用Unicode编码，即每一个字符都是2个字节，也可以加上前缀b表示使用每个字符是<code>byte</code>类型，即每个字符占用一个字节</p>
+<p>7.字符串格式化</p>
+<p>①普通格式化方式与c语言一致，但是用<code>%</code>隔开格式化列表和值，比如<br><code>print(&#39;hello, this is %s&#39; % &#39;Torcy&#39;)</code></p>
+<h2 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h2><p>1.<code>True</code>和<code>False</code></p>
+<p>2.关于布尔值的运算符：<code>and</code>、<code>or</code>、<code>not</code></p>
+<h2 id="空值"><a href="#空值" class="headerlink" title="空值"></a>空值</h2><p>1.<code>None</code></p>
+<h2 id="列表list——"><a href="#列表list——" class="headerlink" title="列表list——[]"></a>列表list——[]</h2><p>1.list是一种有序集合，值是任意数据类型</p>
+<p>2.索引从0开始，不能越界，负数表示倒数第几个</p>
+<p>3.空list——<code>[]</code>，长度为0</p>
+<p>4.常用方法<br><code>name = [&#39;torcy&#39;,&#39;lollip&#39;]</code><br>①<code>len(name)</code>——获取list元素的个数</p>
+<p>②<code>name.apend(&#39;tc&#39;)</code>——在list末尾追加一个元素</p>
+<p>③<code>name.insert(1, &#39;tc&#39;)</code>——插入元素到索引为1的位置</p>
+<p>④<code>x=name.pop()</code>——删除末尾一个元素，并返回这个元素</p>
+<ul>
+<li>pop中也可以指定某个索引<h2 id="元组tuple——"><a href="#元组tuple——" class="headerlink" title="元组tuple——()"></a>元组tuple——()</h2></li>
+</ul>
+<p>1.tuple也是有序列表，唯一和list不同的是，<strong>一经初始化不可修改</strong></p>
+<p>2.末尾额外的一个逗号可以消除歧义</p>
+<ul>
+<li><code>t=(1,)</code>——表示有一个元素1的tuple</li>
+<li><code>t=(1)</code>——表示数字1，<strong>因为括号是数学运算符</strong></li>
+</ul>
+<p>3.如果tuple的元素是某个空间，而这块空间中的值可以改变，这似乎成了“可变的”tuple</p>
+<h2 id="字典dict——"><a href="#字典dict——" class="headerlink" title="字典dict——{}"></a>字典dict——{}</h2><p>1.哈希表</p>
+<p>2.访问不存在的key会报错</p>
+<p>3.<code>in</code>操作符来判断key是否在一个dict中，返回布尔值</p>
+<p>4.常用方法：<br>dict={‘name’:’torcy’,’age’:18,’gender’:’male’}</p>
+<ul>
+<li><p><code>dict.get(&#39;hobby&#39;)</code>——获取dict中的某个元素，如果不存在返回None</p>
+</li>
+<li><p><code>dict.get(&#39;hobby&#39;，-1)</code>——获取dict中的某个元素，如果不存在返回-1</p>
+</li>
+<li><p><code>dict.pop(&#39;gender&#39;)</code>——删除一个元素</p>
+</li>
+<li><p><code>dict.values()</code>——获取它的value集合</p>
+</li>
+</ul>
+<h2 id="集合set——"><a href="#集合set——" class="headerlink" title="集合set——[]"></a>集合set——[]</h2><p>1.key不能重复，数学意义上的无序和无重元素的集合</p>
+<p>2.要创建一个set需要提供一个list作为输入集合，同时自动去重</p>
+<p>3.可以做数学上的集合运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1=set([1,2,3])</span><br><span class="line">s2=set([2,3,4])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>并——s1 | s2</li>
+<li>交——s1 &amp; s2</li>
+</ul>
+<p>4.常用方法：<br><code>s=set([1,2,2,3,4,4,5,4]) #s={1,2,3,4,5}</code></p>
+<ul>
+<li><code>s.add(6)</code>——添加一个元素</li>
+<li><code>s.remove(4)</code>——删除一个元素</li>
+</ul>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>1.<code>for in</code>循环，用来迭代list或者tuple中的元素</p>
+<h2 id="除法"><a href="#除法" class="headerlink" title="除法"></a>除法</h2><p>1.<code>/</code>精确除法，结果总是一个浮点数</p>
+<p>2.<code>//</code>取整除法，结果总是一个整数，只取整数部分，而不是四舍五入</p>
+<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>1.计算机内存中统一使用Unicode编码，在磁盘上或者传输时总是转换为UTF-8编码</p>
+<p>2.服务器动态生成的网页内容应该是Unicode的，所以它需要转换为UTF-8编码来传输</p>
+<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><p>1.<code>x=input(&quot;请输入：&quot;)</code>——打印“请输入：”后获取用户输入的一个字符串，并将其赋值给x</p>
+<p>2.<code>int(“123”)</code>——将字符串转换为数字，转换失败则报错<br>3.<code>range(101)</code>——生成一个0-100的整数序列</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/Python/">Python</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/12/Python修炼：输入输出/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Python修炼：输入输出类型</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/12/C学习：标准库/">
+        <span class="next-text nav-default">C学习：标准库���</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">Lollipop43.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

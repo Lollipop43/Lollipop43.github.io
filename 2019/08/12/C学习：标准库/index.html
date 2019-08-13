@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="C学习：标准库���">
+
+
+
+
+  <meta name="keywords" content="C,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="归">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/08/12/C学习：标准库/">
+
+
+<meta name="description" content="合格###&amp;lt;stdio.h&amp;gt; fopen()    打开一个文件并返回文件指针getc()    从流中读取字符getchar()    从控制台读取字符并立即回显gets()    从流中读取字符串putc()    写文件函数(将一指定字符写入文件中)putchar()    向控制台输出一个字符rewind()    将文件指针重新指向文件开头setbuf()    把缓冲区与流">
+<meta name="keywords" content="C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C学习：标准库���">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/C学习：标准库/index.html">
+<meta property="og:site_name" content="归">
+<meta property="og:description" content="合格###&amp;lt;stdio.h&amp;gt; fopen()    打开一个文件并返回文件指针getc()    从流中读取字符getchar()    从控制台读取字符并立即回显gets()    从流中读取字符串putc()    写文件函数(将一指定字符写入文件中)putchar()    向控制台输出一个字符rewind()    将文件指针重新指向文件开头setbuf()    把缓冲区与流">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T05:00:59.131Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C学习：标准库���">
+<meta name="twitter:description" content="合格###&amp;lt;stdio.h&amp;gt; fopen()    打开一个文件并返回文件指针getc()    从流中读取字符getchar()    从控制台读取字符并立即回显gets()    从流中读取字符串putc()    写文件函数(将一指定字符写入文件中)putchar()    向控制台输出一个字符rewind()    将文件指针重新指向文件开头setbuf()    把缓冲区与流">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> C学习：标准库��� - 归 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">归</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          C学习：标准库���
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 12 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="合格"><a href="#合格" class="headerlink" title="合格"></a>合格</h2><p>###&lt;stdio.h&gt;</p>
+<h4 id="fopen-打开一个文件并返回文件指针"><a href="#fopen-打开一个文件并返回文件指针" class="headerlink" title="fopen()    打开一个文件并返回文件指针"></a>fopen()    打开一个文件并返回文件指针</h4><h4 id="getc-从流中读取字符"><a href="#getc-从流中读取字符" class="headerlink" title="getc()    从流中读取字符"></a>getc()    从流中读取字符</h4><h4 id="getchar-从控制台读取字符并立即回显"><a href="#getchar-从控制台读取字符并立即回显" class="headerlink" title="getchar()    从控制台读取字符并立即回显"></a>getchar()    从控制台读取字符并立即回显</h4><h4 id="gets-从流中读取字符串"><a href="#gets-从流中读取字符串" class="headerlink" title="gets()    从流中读取字符串"></a>gets()    从流中读取字符串</h4><h4 id="putc-写文件函数-将一指定字符写入文件中"><a href="#putc-写文件函数-将一指定字符写入文件中" class="headerlink" title="putc()    写文件函数(将一指定字符写入文件中)"></a>putc()    写文件函数(将一指定字符写入文件中)</h4><h4 id="putchar-向控制台输出一个字符"><a href="#putchar-向控制台输出一个字符" class="headerlink" title="putchar()    向控制台输出一个字符"></a>putchar()    向控制台输出一个字符</h4><h4 id="rewind-将文件指针重新指向文件开头"><a href="#rewind-将文件指针重新指向文件开头" class="headerlink" title="rewind()    将文件指针重新指向文件开头"></a>rewind()    将文件指针重新指向文件开头</h4><h4 id="setbuf-把缓冲区与流相关联"><a href="#setbuf-把缓冲区与流相关联" class="headerlink" title="setbuf()    把缓冲区与流相关联"></a>setbuf()    把缓冲区与流相关联</h4><h4 id="setvbuf-设置文件流的缓冲区"><a href="#setvbuf-设置文件流的缓冲区" class="headerlink" title="setvbuf()    设置文件流的缓冲区"></a>setvbuf()    设置文件流的缓冲区</h4><h4 id="ungetc-把字符退回到输入流"><a href="#ungetc-把字符退回到输入流" class="headerlink" title="ungetc()    把字符退回到输入流"></a>ungetc()    把字符退回到输入流</h4><h4 id="printf-格式化输出函数"><a href="#printf-格式化输出函数" class="headerlink" title="printf()    格式化输出函数"></a>printf()    格式化输出函数</h4><h4 id="sprintf-将格式化的数据写入字符串"><a href="#sprintf-将格式化的数据写入字符串" class="headerlink" title="sprintf()    将格式化的数据写入字符串"></a>sprintf()    将格式化的数据写入字符串</h4><h4 id="sscanf-从字符串中读取指定格式的数据"><a href="#sscanf-从字符串中读取指定格式的数据" class="headerlink" title="sscanf()    从字符串中读取指定格式的数据"></a>sscanf()    从字符串中读取指定格式的数据</h4><h4 id="remove-删除文件或目录"><a href="#remove-删除文件或目录" class="headerlink" title="remove()    删除文件或目录"></a>remove()    删除文件或目录</h4><h4 id="rename-重命名文件或目录"><a href="#rename-重命名文件或目录" class="headerlink" title="rename()    重命名文件或目录"></a>rename()    重命名文件或目录</h4><h4 id="perror-打印最近一次系统错误信息"><a href="#perror-打印最近一次系统错误信息" class="headerlink" title="perror()    打印最近一次系统错误信息"></a>perror()    打印最近一次系统错误信息</h4><h4 id="getche-从控制台读取字符并立即回显"><a href="#getche-从控制台读取字符并立即回显" class="headerlink" title="getche()    从控制台读取字符并立即回显"></a>getche()    从控制台读取字符并立即回显</h4><h4 id="getw-以二进制形式从文件流中读取整数"><a href="#getw-以二进制形式从文件流中读取整数" class="headerlink" title="getw()    以二进制形式从文件流中读取整数"></a>getw()    以二进制形式从文件流中读取整数</h4><h4 id="puts-将一个字符串放入标准输出流-stdout-中"><a href="#puts-将一个字符串放入标准输出流-stdout-中" class="headerlink" title="puts()    将一个字符串放入标准输出流(stdout)中"></a>puts()    将一个字符串放入标准输出流(stdout)中</h4><h4 id="putw-以二进制形式向文件流中写入整数"><a href="#putw-以二进制形式向文件流中写入整数" class="headerlink" title="putw()    以二进制形式向文件流中写入整数"></a>putw()    以二进制形式向文件流中写入整数</h4><h4 id="snprintf-将格式化的数据写入字符串—sprintf"><a href="#snprintf-将格式化的数据写入字符串—sprintf" class="headerlink" title="snprintf()    将格式化的数据写入字符串—sprintf()"></a>snprintf()    将格式化的数据写入字符串—sprintf()</h4><h4 id="temfile-以二进制形式创建一个临时文件并打开"><a href="#temfile-以二进制形式创建一个临时文件并打开" class="headerlink" title="temfile()    以二进制形式创建一个临时文件并打开"></a>temfile()    以二进制形式创建一个临时文件并打开</h4><h4 id="tmpnam-产生一个唯一的包含路径的文件名"><a href="#tmpnam-产生一个唯一的包含路径的文件名" class="headerlink" title="tmpnam()    产生一个唯一的包含路径的文件名"></a>tmpnam()    产生一个唯一的包含路径的文件名</h4><h4 id="ungetch-把一个字符退回到键盘缓冲区"><a href="#ungetch-把一个字符退回到键盘缓冲区" class="headerlink" title="ungetch()    把一个字符退回到键盘缓冲区"></a>ungetch()    把一个字符退回到键盘缓冲区</h4><h4 id="fgetpos-获得当前文件的读写指针"><a href="#fgetpos-获得当前文件的读写指针" class="headerlink" title="fgetpos()    获得当前文件的读写指针"></a>fgetpos()    获得当前文件的读写指针</h4><h4 id="fsetpos-设置当前文件的读写指针"><a href="#fsetpos-设置当前文件的读写指针" class="headerlink" title="fsetpos()    设置当前文件的读写指针"></a>fsetpos()    设置当前文件的读写指针</h4><h4 id="fclose-关闭文件流"><a href="#fclose-关闭文件流" class="headerlink" title="fclose()    关闭文件流"></a>fclose()    关闭文件流</h4><h4 id="fflush-清空文件缓冲区（或标准输入输出缓冲区）"><a href="#fflush-清空文件缓冲区（或标准输入输出缓冲区）" class="headerlink" title="fflush()    清空文件缓冲区（或标准输入输出缓冲区）"></a>fflush()    清空文件缓冲区（或标准输入输出缓冲区）</h4><h4 id="ferror-检测文件流是否出错"><a href="#ferror-检测文件流是否出错" class="headerlink" title="ferror()    检测文件流是否出错"></a>ferror()    检测文件流是否出错</h4><h4 id="freopen-文件流重定向，流替换"><a href="#freopen-文件流重定向，流替换" class="headerlink" title="freopen()    文件流重定向，流替换"></a>freopen()    文件流重定向，流替换</h4><h4 id="clearerr-清除（复位）文件流的错误标识，并使文件结束标标识为0"><a href="#clearerr-清除（复位）文件流的错误标识，并使文件结束标标识为0" class="headerlink" title="clearerr()    清除（复位）文件流的错误标识，并使文件结束标标识为0"></a>clearerr()    清除（复位）文件流的错误标识，并使文件结束标标识为0</h4><h4 id="fgetc-从文件流中读取一个字符"><a href="#fgetc-从文件流中读取一个字符" class="headerlink" title="fgetc()    从文件流中读取一个字符"></a>fgetc()    从文件流中读取一个字符</h4><h4 id="fgetchar-从文件流中读取一个字符"><a href="#fgetchar-从文件流中读取一个字符" class="headerlink" title="fgetchar()    从文件流中读取一个字符"></a>fgetchar()    从文件流中读取一个字符</h4><h4 id="fputchar-将一个字符输出到标准输出流-stdout-中"><a href="#fputchar-将一个字符输出到标准输出流-stdout-中" class="headerlink" title="fputchar()    将一个字符输出到标准输出流(stdout)中"></a>fputchar()    将一个字符输出到标准输出流(stdout)中</h4><h4 id="fgets-从文件流中读取一行或指定个数的字符"><a href="#fgets-从文件流中读取一行或指定个数的字符" class="headerlink" title="fgets()    从文件流中读取一行或指定个数的字符"></a>fgets()    从文件流中读取一行或指定个数的字符</h4><h4 id="feof-检查流上文件的结束标识-是否读到文件结尾"><a href="#feof-检查流上文件的结束标识-是否读到文件结尾" class="headerlink" title="feof()    检查流上文件的结束标识(是否读到文件结尾)"></a>feof()    检查流上文件的结束标识(是否读到文件结尾)</h4><h4 id="fputs-将指定的字符串写入到文件流"><a href="#fputs-将指定的字符串写入到文件流" class="headerlink" title="fputs()    将指定的字符串写入到文件流"></a>fputs()    将指定的字符串写入到文件流</h4><h4 id="fread-从文件流中读取数据"><a href="#fread-从文件流中读取数据" class="headerlink" title="fread()    从文件流中读取数据"></a>fread()    从文件流中读取数据</h4><h4 id="fwrite-向文件流中写入数据"><a href="#fwrite-向文件流中写入数据" class="headerlink" title="fwrite()    向文件流中写入数据"></a>fwrite()    向文件流中写入数据</h4><h4 id="fseek-移动文件的读写指针到指定的位置"><a href="#fseek-移动文件的读写指针到指定的位置" class="headerlink" title="fseek()    移动文件的读写指针到指定的位置"></a>fseek()    移动文件的读写指针到指定的位置</h4><h4 id="ftell-获取文件读写指针的当前位置"><a href="#ftell-获取文件读写指针的当前位置" class="headerlink" title="ftell()    获取文件读写指针的当前位置"></a>ftell()    获取文件读写指针的当前位置</h4><h4 id="fprintf-将格式化数据输出到文件流"><a href="#fprintf-将格式化数据输出到文件流" class="headerlink" title="fprintf()    将格式化数据输出到文件流"></a>fprintf()    将格式化数据输出到文件流</h4><h4 id="scanf-格式化输入函数"><a href="#scanf-格式化输入函数" class="headerlink" title="scanf()    格式化输入函数"></a>scanf()    格式化输入函数</h4><h4 id="fscanf-将文件流中的数据格式化输入"><a href="#fscanf-将文件流中的数据格式化输入" class="headerlink" title="fscanf()    将文件流中的数据格式化输入"></a>fscanf()    将文件流中的数据格式化输入</h4><h3 id="lt-ctype-h-gt"><a href="#lt-ctype-h-gt" class="headerlink" title="&lt;ctype.h&gt;"></a>&lt;ctype.h&gt;</h3><h4 id="isalnum-判断字符是否为英文字母或数字"><a href="#isalnum-判断字符是否为英文字母或数字" class="headerlink" title="isalnum()    判断字符是否为英文字母或数字"></a>isalnum()    判断字符是否为英文字母或数字</h4><h4 id="isalpha-判断字符是否为英文字母"><a href="#isalpha-判断字符是否为英文字母" class="headerlink" title="isalpha()    判断字符是否为英文字母"></a>isalpha()    判断字符是否为英文字母</h4><h4 id="iscntrl-判断字符是否为ASCII码的控制字符"><a href="#iscntrl-判断字符是否为ASCII码的控制字符" class="headerlink" title="iscntrl()    判断字符是否为ASCII码的控制字符"></a>iscntrl()    判断字符是否为ASCII码的控制字符</h4><h4 id="isdigit-判断字符是否为阿拉伯数字"><a href="#isdigit-判断字符是否为阿拉伯数字" class="headerlink" title="isdigit()    判断字符是否为阿拉伯数字"></a>isdigit()    判断字符是否为阿拉伯数字</h4><h4 id="isgraph-判断字符是否为除空格以外的可打印字符"><a href="#isgraph-判断字符是否为除空格以外的可打印字符" class="headerlink" title="isgraph()    判断字符是否为除空格以外的可打印字符"></a>isgraph()    判断字符是否为除空格以外的可打印字符</h4><h4 id="islower-判断字符是否为小写字母"><a href="#islower-判断字符是否为小写字母" class="headerlink" title="islower()    判断字符是否为小写字母"></a>islower()    判断字符是否为小写字母</h4><h4 id="isprint-判断字符是否为可打印字符"><a href="#isprint-判断字符是否为可打印字符" class="headerlink" title="isprint()    判断字符是否为可打印字符"></a>isprint()    判断字符是否为可打印字符</h4><h4 id="isspace-判断字符是否为空白字符"><a href="#isspace-判断字符是否为空白字符" class="headerlink" title="isspace()    判断字符是否为空白字符"></a>isspace()    判断字符是否为空白字符</h4><h4 id="ispunct-判断字符是否为标点符号或特殊字符"><a href="#ispunct-判断字符是否为标点符号或特殊字符" class="headerlink" title="ispunct()    判断字符是否为标点符号或特殊字符"></a>ispunct()    判断字符是否为标点符号或特殊字符</h4><h4 id="isupper-判断字符是否为大写英文字母"><a href="#isupper-判断字符是否为大写英文字母" class="headerlink" title="isupper()    判断字符是否为大写英文字母"></a>isupper()    判断字符是否为大写英文字母</h4><h4 id="isxdigit-判断字符是否为16进制数字"><a href="#isxdigit-判断字符是否为16进制数字" class="headerlink" title="isxdigit()    判断字符是否为16进制数字"></a>isxdigit()    判断字符是否为16进制数字</h4><h4 id="toascii-将字符转换成对应的ASCII码"><a href="#toascii-将字符转换成对应的ASCII码" class="headerlink" title="toascii()    将字符转换成对应的ASCII码"></a>toascii()    将字符转换成对应的ASCII码</h4><h4 id="tolower-将大写字母转换为小写字母"><a href="#tolower-将大写字母转换为小写字母" class="headerlink" title="tolower()    将大写字母转换为小写字母"></a>tolower()    将大写字母转换为小写字母</h4><h4 id="toupper-将小写字母转换为大写字母"><a href="#toupper-将小写字母转换为大写字母" class="headerlink" title="toupper()    将小写字母转换为大写字母"></a>toupper()    将小写字母转换为大写字母</h4><h4 id="isascii-检测字符是否为ASCII字符"><a href="#isascii-检测字符是否为ASCII字符" class="headerlink" title="isascii()    检测字符是否为ASCII字符"></a>isascii()    检测字符是否为ASCII字符</h4><h4 id="isblank-判断字符是否为TAB或空格"><a href="#isblank-判断字符是否为TAB或空格" class="headerlink" title="isblank()    判断字符是否为TAB或空格"></a>isblank()    判断字符是否为TAB或空格</h4><h3 id="lt-stdlib-h-gt"><a href="#lt-stdlib-h-gt" class="headerlink" title="&lt;stdlib.h&gt;"></a>&lt;stdlib.h&gt;</h3><h4 id="atof-将字符串转换为double-双精度浮点数"><a href="#atof-将字符串转换为double-双精度浮点数" class="headerlink" title="atof()    将字符串转换为double(双精度浮点数)"></a>atof()    将字符串转换为double(双精度浮点数)</h4><h4 id="atoi-将字符串转换成int-整数"><a href="#atoi-将字符串转换成int-整数" class="headerlink" title="atoi()    将字符串转换成int(整数)"></a>atoi()    将字符串转换成int(整数)</h4><h4 id="atol-将字符串转换成long-长整型"><a href="#atol-将字符串转换成long-长整型" class="headerlink" title="atol()    将字符串转换成long(长整型)"></a>atol()    将字符串转换成long(长整型)</h4><h4 id="strtod-将字符串转换为double-双精度浮点数"><a href="#strtod-将字符串转换为double-双精度浮点数" class="headerlink" title="strtod()    将字符串转换为double(双精度浮点数)"></a>strtod()    将字符串转换为double(双精度浮点数)</h4><h4 id="strtol-将字符串转换成long-长整型数"><a href="#strtol-将字符串转换成long-长整型数" class="headerlink" title="strtol()    将字符串转换成long(长整型数)"></a>strtol()    将字符串转换成long(长整型数)</h4><h4 id="strtoul-将字符串转换成unsigned-long-无符号长整型数"><a href="#strtoul-将字符串转换成unsigned-long-无符号长整型数" class="headerlink" title="strtoul()    将字符串转换成unsigned long(无符号长整型数)"></a>strtoul()    将字符串转换成unsigned long(无符号长整型数)</h4><h4 id="calloc-分配内存空间并初始化"><a href="#calloc-分配内存空间并初始化" class="headerlink" title="calloc()    分配内存空间并初始化"></a>calloc()    分配内存空间并初始化</h4><h4 id="free-释放动态分配的内存空间"><a href="#free-释放动态分配的内存空间" class="headerlink" title="free()    释放动态分配的内存空间"></a>free()    释放动态分配的内存空间</h4><h4 id="malloc-动态分配内存空间"><a href="#malloc-动态分配内存空间" class="headerlink" title="malloc()    动态分配内存空间"></a>malloc()    动态分配内存空间</h4><h4 id="realloc-重新分配内存空间"><a href="#realloc-重新分配内存空间" class="headerlink" title="realloc()    重新分配内存空间"></a>realloc()    重新分配内存空间</h4><h3 id="lt-string-h-gt"><a href="#lt-string-h-gt" class="headerlink" title="&lt;string.h&gt;"></a>&lt;string.h&gt;</h3><h4 id="bcmp-比较内存-字符串-的前n个字节是否相等"><a href="#bcmp-比较内存-字符串-的前n个字节是否相等" class="headerlink" title="bcmp()    比较内存(字符串)的前n个字节是否相等"></a>bcmp()    比较内存(字符串)的前n个字节是否相等</h4><h4 id="bcopy-复制内存-字符串"><a href="#bcopy-复制内存-字符串" class="headerlink" title="bcopy()    复制内存(字符串)"></a>bcopy()    复制内存(字符串)</h4><h4 id="bzero-将内存（字符串）前n个字节清零"><a href="#bzero-将内存（字符串）前n个字节清零" class="headerlink" title="bzero()    将内存（字符串）前n个字节清零"></a>bzero()    将内存（字符串）前n个字节清零</h4><h4 id="memcpy-复制内存内容-忽略-0"><a href="#memcpy-复制内存内容-忽略-0" class="headerlink" title="memcpy()    复制内存内容(忽略\0)"></a>memcpy()    复制内存内容(忽略\0)</h4><h4 id="memmove-复制内存内容（可以处理重叠的内存块）"><a href="#memmove-复制内存内容（可以处理重叠的内存块）" class="headerlink" title="memmove()    复制内存内容（可以处理重叠的内存块）"></a>memmove()    复制内存内容（可以处理重叠的内存块）</h4><h4 id="memset-将内存的前n个字节设置为特定的值"><a href="#memset-将内存的前n个字节设置为特定的值" class="headerlink" title="memset()    将内存的前n个字节设置为特定的值"></a>memset()    将内存的前n个字节设置为特定的值</h4><h4 id="strcat-连接字符串"><a href="#strcat-连接字符串" class="headerlink" title="strcat()    连接字符串"></a>strcat()    连接字符串</h4><h4 id="strchr-查找某字符在字符串中首次出现的位置"><a href="#strchr-查找某字符在字符串中首次出现的位置" class="headerlink" title="strchr()    查找某字符在字符串中首次出现的位置"></a>strchr()    查找某字符在字符串中首次出现的位置</h4><h4 id="strcmp-比较字符串（区分大小写）"><a href="#strcmp-比较字符串（区分大小写）" class="headerlink" title="strcmp()    比较字符串（区分大小写）"></a>strcmp()    比较字符串（区分大小写）</h4><h4 id="strcoll-根据环境变量LC-COLLATE来比较字符串"><a href="#strcoll-根据环境变量LC-COLLATE来比较字符串" class="headerlink" title="strcoll()    根据环境变量LC_COLLATE来比较字符串"></a>strcoll()    根据环境变量LC_COLLATE来比较字符串</h4><h4 id="strcspn-计算字符串str中连续有几个字符都不属于字符串accept"><a href="#strcspn-计算字符串str中连续有几个字符都不属于字符串accept" class="headerlink" title="strcspn()    计算字符串str中连续有几个字符都不属于字符串accept"></a>strcspn()    计算字符串str中连续有几个字符都不属于字符串accept</h4><h4 id="strlen-返回字符串的长度"><a href="#strlen-返回字符串的长度" class="headerlink" title="strlen()    返回字符串的长度"></a>strlen()    返回字符串的长度</h4><h4 id="strncat-在字符串的结尾追加n个字符"><a href="#strncat-在字符串的结尾追加n个字符" class="headerlink" title="strncat()    在字符串的结尾追加n个字符"></a>strncat()    在字符串的结尾追加n个字符</h4><h4 id="strncpy-复制字符串的前n个字符"><a href="#strncpy-复制字符串的前n个字符" class="headerlink" title="strncpy()    复制字符串的前n个字符"></a>strncpy()    复制字符串的前n个字符</h4><h4 id="strpbrk-返回两个字符串中首个相同字符的位置"><a href="#strpbrk-返回两个字符串中首个相同字符的位置" class="headerlink" title="strpbrk()    返回两个字符串中首个相同字符的位置"></a>strpbrk()    返回两个字符串中首个相同字符的位置</h4><h4 id="strrchr-查找某字符在字符串中最后一次出现的位置"><a href="#strrchr-查找某字符在字符串中最后一次出现的位置" class="headerlink" title="strrchr()    查找某字符在字符串中最后一次出现的位置"></a>strrchr()    查找某字符在字符串中最后一次出现的位置</h4><h4 id="strspn-计算字符串str中连续有几个字符都属于字符串accept"><a href="#strspn-计算字符串str中连续有几个字符都属于字符串accept" class="headerlink" title="strspn()    计算字符串str中连续有几个字符都属于字符串accept"></a>strspn()    计算字符串str中连续有几个字符都属于字符串accept</h4><h4 id="strstr-返回字符串中首次出现子串的地址"><a href="#strstr-返回字符串中首次出现子串的地址" class="headerlink" title="strstr()    返回字符串中首次出现子串的地址"></a>strstr()    返回字符串中首次出现子串的地址</h4><h4 id="strtok-字符串分割"><a href="#strtok-字符串分割" class="headerlink" title="strtok()    字符串分割"></a>strtok()    字符串分割</h4><h4 id="stpcpy-将字符串复制到数组"><a href="#stpcpy-将字符串复制到数组" class="headerlink" title="stpcpy()    将字符串复制到数组"></a>stpcpy()    将字符串复制到数组</h4><h4 id="strcpy-字符串复制"><a href="#strcpy-字符串复制" class="headerlink" title="strcpy()    字符串复制"></a>strcpy()    字符串复制</h4><h4 id="stricmp-比较字符串（不区分大小写）"><a href="#stricmp-比较字符串（不区分大小写）" class="headerlink" title="stricmp()    比较字符串（不区分大小写）"></a>stricmp()    比较字符串（不区分大小写）</h4><h4 id="strcmpi-比较字符串-不区分大小写-，stricmp-的宏定义"><a href="#strcmpi-比较字符串-不区分大小写-，stricmp-的宏定义" class="headerlink" title="strcmpi()    比较字符串(不区分大小写)，stricmp()的宏定义"></a>strcmpi()    比较字符串(不区分大小写)，stricmp()的宏定义</h4><h4 id="strlwr-将字符串转换为小写"><a href="#strlwr-将字符串转换为小写" class="headerlink" title="strlwr()    将字符串转换为小写"></a>strlwr()    将字符串转换为小写</h4><h4 id="strupr-将字符串转换为大写"><a href="#strupr-将字符串转换为大写" class="headerlink" title="strupr()    将字符串转换为大写"></a>strupr()    将字符串转换为大写</h4><h4 id="strncmp-比较字符串的前n个字符（区分大小写）"><a href="#strncmp-比较字符串的前n个字符（区分大小写）" class="headerlink" title="strncmp()    比较字符串的前n个字符（区分大小写）"></a>strncmp()    比较字符串的前n个字符（区分大小写）</h4><h4 id="strnicmp-比较字符串的前n个字符（区分大小写）"><a href="#strnicmp-比较字符串的前n个字符（区分大小写）" class="headerlink" title="strnicmp()    比较字符串的前n个字符（区分大小写）"></a>strnicmp()    比较字符串的前n个字符（区分大小写）</h4><h4 id="strncmpi-比较两个字符串的前n个字符（不区分大小写）"><a href="#strncmpi-比较两个字符串的前n个字符（不区分大小写）" class="headerlink" title="strncmpi()    比较两个字符串的前n个字符（不区分大小写）"></a>strncmpi()    比较两个字符串的前n个字符（不区分大小写）</h4><h4 id="strrev-字符串逆置（倒序、逆序）"><a href="#strrev-字符串逆置（倒序、逆序）" class="headerlink" title="strrev()    字符串逆置（倒序、逆序）"></a>strrev()    字符串逆置（倒序、逆序）</h4><h4 id="strset-将字符串的所有字符设置为指定字符"><a href="#strset-将字符串的所有字符设置为指定字符" class="headerlink" title="strset()    将字符串的所有字符设置为指定字符"></a>strset()    将字符串的所有字符设置为指定字符</h4><h4 id="strnset-将字符串的前n个字符设置为指定字符"><a href="#strnset-将字符串的前n个字符设置为指定字符" class="headerlink" title="strnset()    将字符串的前n个字符设置为指定字符"></a>strnset()    将字符串的前n个字符设置为指定字符</h4><h2 id="熟练"><a href="#熟练" class="headerlink" title="熟练"></a>熟练</h2><h3 id="lt-assert-h-gt"><a href="#lt-assert-h-gt" class="headerlink" title="&lt;assert.h&gt;"></a>&lt;assert.h&gt;</h3><h3 id="lt-limits-h-gt"><a href="#lt-limits-h-gt" class="headerlink" title="&lt;limits.h&gt;"></a>&lt;limits.h&gt;</h3><h3 id="lt-stddef-h-gt"><a href="#lt-stddef-h-gt" class="headerlink" title="&lt;stddef.h&gt;"></a>&lt;stddef.h&gt;</h3><h3 id="lt-time-h-gt"><a href="#lt-time-h-gt" class="headerlink" title="&lt;time.h&gt;"></a>&lt;time.h&gt;</h3><h2 id="优秀"><a href="#优秀" class="headerlink" title="优秀"></a>优秀</h2><h3 id="lt-float-h-gt"><a href="#lt-float-h-gt" class="headerlink" title="&lt;float.h&gt;"></a>&lt;float.h&gt;</h3><h3 id="lt-math-h-gt"><a href="#lt-math-h-gt" class="headerlink" title="&lt;math.h&gt;"></a>&lt;math.h&gt;</h3><h4 id="acos-求反余弦的值"><a href="#acos-求反余弦的值" class="headerlink" title="acos()    求反余弦的值"></a>acos()    求反余弦的值</h4><h4 id="cos-求余弦值"><a href="#cos-求余弦值" class="headerlink" title="cos()    求余弦值"></a>cos()    求余弦值</h4><h4 id="cosh-求双曲余玄值"><a href="#cosh-求双曲余玄值" class="headerlink" title="cosh()    求双曲余玄值"></a>cosh()    求双曲余玄值</h4><h4 id="exp-e的次幂函数-以e为底的x次方值"><a href="#exp-e的次幂函数-以e为底的x次方值" class="headerlink" title="exp()    e的次幂函数(以e为底的x次方值)"></a>exp()    e的次幂函数(以e为底的x次方值)</h4><h4 id="frexp-把一个浮点数分解为尾数和指数"><a href="#frexp-把一个浮点数分解为尾数和指数" class="headerlink" title="frexp()    把一个浮点数分解为尾数和指数"></a>frexp()    把一个浮点数分解为尾数和指数</h4><h4 id="ldexp-返回x乘上2的exp次方的值"><a href="#ldexp-返回x乘上2的exp次方的值" class="headerlink" title="ldexp()    返回x乘上2的exp次方的值"></a>ldexp()    返回x乘上2的exp次方的值</h4><h4 id="log-返回以e为底的对数值"><a href="#log-返回以e为底的对数值" class="headerlink" title="log()    返回以e为底的对数值"></a>log()    返回以e为底的对数值</h4><h4 id="log10-返回以10为底的对数值"><a href="#log10-返回以10为底的对数值" class="headerlink" title="log10()    返回以10为底的对数值"></a>log10()    返回以10为底的对数值</h4><h4 id="pow-求x的y次方（次幂）"><a href="#pow-求x的y次方（次幂）" class="headerlink" title="pow()    求x的y次方（次幂）"></a>pow()    求x的y次方（次幂）</h4><h4 id="sin-正弦函数"><a href="#sin-正弦函数" class="headerlink" title="sin()    正弦函数"></a>sin()    正弦函数</h4><h4 id="sinh-双曲正玄函数"><a href="#sinh-双曲正玄函数" class="headerlink" title="sinh()    双曲正玄函数"></a>sinh()    双曲正玄函数</h4><h4 id="sqrt-求给定值的平方根"><a href="#sqrt-求给定值的平方根" class="headerlink" title="sqrt()    求给定值的平方根"></a>sqrt()    求给定值的平方根</h4><h4 id="tan-正切函数"><a href="#tan-正切函数" class="headerlink" title="tan()    正切函数"></a>tan()    正切函数</h4><h4 id="tanh-双曲线正切函数"><a href="#tanh-双曲线正切函数" class="headerlink" title="tanh()    双曲线正切函数"></a>tanh()    双曲线正切函数</h4><h4 id="fabs-求浮点数的绝对值"><a href="#fabs-求浮点数的绝对值" class="headerlink" title="fabs()    求浮点数的绝对值"></a>fabs()    求浮点数的绝对值</h4><h4 id="abs-求整数的绝对值"><a href="#abs-求整数的绝对值" class="headerlink" title="abs()    求整数的绝对值"></a>abs()    求整数的绝对值</h4><h4 id="asin-反正弦函数"><a href="#asin-反正弦函数" class="headerlink" title="asin()    反正弦函数"></a>asin()    反正弦函数</h4><h4 id="atan-反正切函数"><a href="#atan-反正切函数" class="headerlink" title="atan()    反正切函数"></a>atan()    反正切函数</h4><h4 id="atan2-求y-x的反正切值"><a href="#atan2-求y-x的反正切值" class="headerlink" title="atan2()    求y/x的反正切值"></a>atan2()    求y/x的反正切值</h4><h4 id="ceil-向上取整，即求不小于某个数的最小整数"><a href="#ceil-向上取整，即求不小于某个数的最小整数" class="headerlink" title="ceil()    向上取整，即求不小于某个数的最小整数"></a>ceil()    向上取整，即求不小于某个数的最小整数</h4><h4 id="floor-向下取整，即求不大于某个数的最大整数"><a href="#floor-向下取整，即求不大于某个数的最大整数" class="headerlink" title="floor()    向下取整，即求不大于某个数的最大整数"></a>floor()    向下取整，即求不大于某个数的最大整数</h4><h4 id="fmod-对浮点数取模（求余）"><a href="#fmod-对浮点数取模（求余）" class="headerlink" title="fmod()    对浮点数取模（求余）"></a>fmod()    对浮点数取模（求余）</h4><h4 id="modf-将浮点数分解为整数和小数部分"><a href="#modf-将浮点数分解为整数和小数部分" class="headerlink" title="modf()    将浮点数分解为整数和小数部分"></a>modf()    将浮点数分解为整数和小数部分</h4><h4 id="hypot-求直角三角形的斜边长"><a href="#hypot-求直角三角形的斜边长" class="headerlink" title="hypot()    求直角三角形的斜边长"></a>hypot()    求直角三角形的斜边长</h4><h4 id="pow10-求10的x次方（次幂）"><a href="#pow10-求10的x次方（次幂）" class="headerlink" title="pow10()    求10的x次方（次幂）"></a>pow10()    求10的x次方（次幂）</h4><h3 id="lt-error-h-gt"><a href="#lt-error-h-gt" class="headerlink" title="&lt;error.h&gt;"></a>&lt;error.h&gt;</h3><h3 id="lt-locale-h-gt"><a href="#lt-locale-h-gt" class="headerlink" title="&lt;locale.h&gt;"></a>&lt;locale.h&gt;</h3><h3 id="lt-setjmp-h-gt"><a href="#lt-setjmp-h-gt" class="headerlink" title="&lt;setjmp.h&gt;"></a>&lt;setjmp.h&gt;</h3><h3 id="lt-stdarg-h-gt-lt-signal-h-gt"><a href="#lt-stdarg-h-gt-lt-signal-h-gt" class="headerlink" title="&lt;stdarg.h&gt;### &lt;signal.h&gt;"></a>&lt;stdarg.h&gt;### &lt;signal.h&gt;</h3>
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/C/">C</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/12/Python修炼：基础数据类型/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Python修炼：基础数据类型</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/12/Visual_Studio常用配置/">
+        <span class="next-text nav-default">Visual_Studio常用配置��类型</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">Lollipop43.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

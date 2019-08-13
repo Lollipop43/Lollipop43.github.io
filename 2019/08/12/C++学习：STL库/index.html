@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="C++学习：STL库����">
+
+
+
+
+  <meta name="keywords" content="C++,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="归">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/08/12/C++学习：STL库/">
+
+
+<meta name="description" content="C++的核心优势就是代码的重用，有两个方面可以体现：  面向对象的继承和多态 通过模板的概念实现了对泛型程序设计的支持  STL是“Standard Template Library”标准模板库的缩写，已经成为C++标准库的一部分，所有C++编译器都支持，使用时只需要引入对应的头文件即可，不用单独安装。 C++充分发挥模板这一特性，把常用的数据结构及其算法都实现了一遍，封装在几个头文件中，就成为了">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++学习：STL库����">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/C++学习：STL库/index.html">
+<meta property="og:site_name" content="归">
+<meta property="og:description" content="C++的核心优势就是代码的重用，有两个方面可以体现：  面向对象的继承和多态 通过模板的概念实现了对泛型程序设计的支持  STL是“Standard Template Library”标准模板库的缩写，已经成为C++标准库的一部分，所有C++编译器都支持，使用时只需要引入对应的头文件即可，不用单独安装。 C++充分发挥模板这一特性，把常用的数据结构及其算法都实现了一遍，封装在几个头文件中，就成为了">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://120.78.88.54/usr/uploads/2019/05/612485738.png">
+<meta property="og:updated_time" content="2019-08-13T05:00:59.122Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++学习：STL库����">
+<meta name="twitter:description" content="C++的核心优势就是代码的重用，有两个方面可以体现：  面向对象的继承和多态 通过模板的概念实现了对泛型程序设计的支持  STL是“Standard Template Library”标准模板库的缩写，已经成为C++标准库的一部分，所有C++编译器都支持，使用时只需要引入对应的头文件即可，不用单独安装。 C++充分发挥模板这一特性，把常用的数据结构及其算法都实现了一遍，封装在几个头文件中，就成为了">
+<meta name="twitter:image" content="http://120.78.88.54/usr/uploads/2019/05/612485738.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> C++学习：STL库���� - 归 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">归</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          C++学习：STL库����
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 12 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>C++的核心优势就是代码的重用，有两个方面可以体现：</p>
+<ul>
+<li>面向对象的继承和多态</li>
+<li>通过模板的概念实现了对泛型程序设计的支持</li>
+</ul>
+<p>STL是“Standard Template Library”标准模板库的缩写，已经成为C++标准库的一部分，所有C++编译器都支持，使用时只需要引入对应的头文件即可，不用单独安装。</p>
+<p>C++充分发挥<strong>模板</strong>这一特性，把常用的数据结构及其算法都实现了一遍，封装在几个头文件中，就成为了STL。</p>
+<p>STL主要由<strong>容器</strong>、<strong>算法</strong>、<strong>迭代器</strong>、<strong>仿函数</strong>、<strong>内存配置器</strong>、<strong>配接器</strong>六部分组成，可以帮助我们在算法或者程序设计时，更关注整个流程而不是某个小的方面比如排序算法。</p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><blockquote>
+<p>容器：用来<strong>存储</strong>和<strong>管理</strong>某类对象的<strong>集合</strong></p>
+</blockquote>
+<p>容器，顾名思义就是可以存放东西的事物。C++里的容器是一个模板类，这种类里可以存放其他对象。</p>
+<p>目前STL提供的容器主要如下：<br><strong>序列式容器</strong></p>
+<ul>
+<li>vector <t>：向量</t></li>
+<li>list <t>：双向链表</t></li>
+<li>deque <t>：双端队列(double ended queue)<blockquote>
+<p>元素的位置由插入顺序决定</p>
+</blockquote>
+</t></li>
+</ul>
+<p><strong>关联式容器</strong></p>
+<ul>
+<li>set <t>：不允许重复元素的集合</t></li>
+<li>multiset <t>：允许重复元素的集合</t></li>
+<li>map &lt;key，value&gt;：不允许重复key的关联数组</li>
+<li>multimap &lt;key，val&gt;：允许重复key的关联数组<blockquote>
+<p>元素是实时排序的，插入时不能指定位置</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>容器适配器</strong></p>
+<ul>
+<li>stack：栈</li>
+<li>queue：队列</li>
+<li>priority_queue：堆</li>
+</ul>
+<p><strong>所有容器都有以下两个成员函数</strong></p>
+<ul>
+<li>size()——返回容器中元素的个数</li>
+<li>empty()——判断容器是否为空，返回1或0</li>
+</ul>
+<p><strong>序列容器和关联容器还有以下成员函数</strong></p>
+<ul>
+<li>begin()：返回指向容器第一个元素的迭代器</li>
+<li>end()：返回指向容器最后一个元素的<strong>下一个位置</strong>的迭代器</li>
+<li>rbegin()：返回指向容器最后一个元素的反向迭代器</li>
+<li>rend()：返回指向容器第一个元素的<strong>前一个位置</strong>的反向迭代器</li>
+<li>erase(iterator i)：删除迭代器i处的元素</li>
+<li>clear()：清空容器</li>
+</ul>
+<p><strong>序列容器的成员函数</strong></p>
+<ul>
+<li>font()：返回第一个元素的引用</li>
+<li>back()：返回最后一个元素的引用</li>
+<li>push_back()：在末尾增加新元素</li>
+<li>pop_back()：删除最后一个元素</li>
+<li>insert(iterator i, const T&amp; val)：在迭代器i处插入一个元素</li>
+</ul>
+<hr>
+<p>访问容器中的元素，需要通过迭代器进行。迭代器是一个变量，可以指向容器中的某个元素，通过迭代器就可以<strong>读写</strong>它指向的元素。从这一点上看，迭代器和指针类似。</p>
+<p><strong>迭代器按照定义方式分成以下四种。</strong></p>
+<p>1) 正向迭代器<br><code>容器类名::iterator  迭代器名;</code></p>
+<p>2) 常量正向迭代器<br><code>容器类名::const_iterator  迭代器名;</code></p>
+<p>3) 反向迭代器<br><code>容器类名::reverse_iterator  迭代器名;</code></p>
+<p>4) 常量反向迭代器<br><code>容器类名::const_reverse_iterator  迭代器名;</code></p>
+<p><strong>迭代器用法示例</strong></p>
+<blockquote>
+<p>容器适配器没有迭代器</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//定义vector</span><br><span class="line">vector&lt;int&gt; nums = &#123;1,2,3,4,5,6&#125;;</span><br><span class="line">//定义迭代器</span><br><span class="line">vector&lt;int&gt;::iterator iter;</span><br><span class="line"></span><br><span class="line">for (iter = nums.begin(); iter != nums.end(); ++iter)&#123;</span><br><span class="line">    cout &lt;&lt; *iter &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过迭代器可以读取它指向的元素，*迭代器名就表示迭代器指向的元素。通过非常量迭代器还能修改其指向的元素。</p>
+<p>迭代器都可以进行++操作。反向迭代器和正向迭代器的区别在于：</p>
+<ul>
+<li>对正向迭代器进行++操作时，迭代器会指向容器中的后一个元素；</li>
+<li>而对反向迭代器进行++操作时，迭代器会指向容器中的前一个元素。</li>
+</ul>
+<p><strong>迭代器按照功能分类</strong></p>
+<ul>
+<li>正向：支持++，==，!=</li>
+<li>双向：支持++，–，==，!=</li>
+<li>随机访问：支持+=，-=，[]，+，-，&lt;，&gt;，&lt;=，&gt;=</li>
+</ul>
+<p><img src="http://120.78.88.54/usr/uploads/2019/05/612485738.png" alt="迭代器"> </p>
+<hr>
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><ul>
+<li><code>vector &lt;T&gt;</code>容器是包含T类型元素的序列容器，大小可以自动增长</li>
+<li>只要元素个数长处vector的当前容量，就会自动分配更多的空间</li>
+<li>只能在容器尾部删除或添加元素</li>
+<li>使用需要包含头文件<vector></vector></li>
+</ul>
+<p>定义<br><code>vector&lt;int&gt; values;</code></p>
+<ul>
+<li>无大小，无内容</li>
+</ul>
+<p><code>vector&lt;int&gt; values(30)；</code></p>
+<ul>
+<li>具有30个元素的空容器，初始化为0</li>
+</ul>
+<p><code>vector&lt;int&gt; values(30,43)；</code></p>
+<ul>
+<li>具有30个元素的容器，全部初始化为43</li>
+</ul>
+<p><code>vector&lt;int&gt; values = {1,2,3,4,5,6}</code></p>
+<ul>
+<li>使用指定元素初始化</li>
+</ul>
+<p><code>vector&lt;int&gt; values(iterator first, iterator last);</code></p>
+<ul>
+<li>使用其他容器的迭代器初始化</li>
+</ul>
+<p><code>vector&lt;vector&lt;int&gt; &gt; twodimarray；</code></p>
+<ul>
+<li>定义一个二维数组</li>
+</ul>
+<hr>
+<p>声明一个存放double类型元素的vector容器：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector &lt;double&gt; values;</span><br></pre></td></tr></table></figure>
+
+<p>因为容器中没有元素，所以没有分配空间，当添加数据时会自动分配内存，调用reserve方法可以预增加容量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">values.reserve(20)——增加容器的容量，但不改变大小</span><br></pre></td></tr></table></figure>
+
+<p>这样容器至少可以容纳20个元素，如果容器当前的容量已经大于或等于20，那么这条语句什么也不做。调用reserve并不会影响现有的元素。</p>
+<p>毋庸置疑申请分配内存总是花费时间的，而且随着容器的增大，这个时间可能会成为影响我们的程序高速运行的短板。因此建议在声明之初就分配好大小。</p>
+<hr>
+<p>假设现有如下的容器——<code>vector &lt;unsigned int&gt; numbers</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numbers.size()——获得容器的大小</span><br><span class="line">numbers.capacity()——获得容器的容量</span><br></pre></td></tr></table></figure>
+
+<p>容器的大小和容量值看起来是一个整数，然而实际上它是有自己的类型的，即<code>vector &lt;T&gt;::size_type</code>，如果我们想使用一个变量来保存这个值，要使用auto关键字定义变量，如<code>auto nelems = numbers.size()</code></p>
+<p>如果我们使用<code>numbers.reserve(20)</code>增加容器的容量，但不会改变容器大小，因此可以使用<br><code>numbers.resize(35[,43])</code>。通过调用resize方法来改变容器的大小，并用一个可选值来初始化新增加的大小</p>
+<p>如果我们使用resize方法缩小了容器的大小，那么会移除多余的元素来达到这个大小，而容器的容量依然不受影响。这就好像是重复调用了几次pop_back()方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">numbers.push_back(value)——在容器尾部添加一个元素</span><br><span class="line">numbers.pop_back()——删除容器的最后一个元素，**并不返回**，自动调整大小</span><br><span class="line">numbers.clear()——清空所有内容</span><br><span class="line">numbers.erase()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若容器的大小已经等于容量，则会自动增加容量，增加多少容量取决于算法的实现，目测是双倍</li>
+</ul>
+<hr>
+<p>就像数组一样，也可以使用下标来索引容器中的值，但是不能使用索引为其新增加值，索引可以访问的范围是容器的<strong>容量</strong>，与大小无关。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numbers.front()——返回容器的第一个元素的引用</span><br><span class="line">numbers.back()——返回容器的最后一个元素的引用</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意这里所谓的第一个和最后一个，是以大小 (而不是容量) 为标准的</p>
+</blockquote>
+<p>由于这两个方法返回的是引用，所以也可以用来赋值</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auto ptr = numbers.data()；</span><br></pre></td></tr></table></figure>
+
+<p>data()函数返回一个指向容器的指针，类型是模板指针类型，如unsigned int的容器就是unsigned int*类型</p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><ul>
+<li>双向链表</li>
+<li><strong>不支持下标访问</strong></li>
+<li>包含头文件<list></list></li>
+</ul>
+<hr>
+<p><strong>常用方法</strong><br><code>push_front(value);</code></p>
+<ul>
+<li>在最前面插入一个元素</li>
+</ul>
+<p><code>pop_front();</code></p>
+<ul>
+<li>删除最前面的元素</li>
+</ul>
+<p><code>remove(value);</code></p>
+<ul>
+<li>删除和value相等的元素</li>
+</ul>
+<p><code>remove_if();</code></p>
+<ul>
+<li>删除符合某种条件的元素</li>
+</ul>
+<p><code>unique();</code></p>
+<ul>
+<li>去重</li>
+</ul>
+<p><code>sort();</code></p>
+<ul>
+<li>排序<h3 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h3>所有适用于vector的操作都适用于deque</li>
+</ul>
+<p>与vector不同，deque在头部或尾部添加删除元素都具有较好的性能，它具有两个vector没有的成员函数<br><code>push_front(val)</code></p>
+<ul>
+<li>在头部添加元素<br><code>pop_fron()</code></li>
+<li>删除头部的元素</li>
+</ul>
+<hr>
+<p><strong>关联容器</strong></p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><blockquote>
+<p>STL算法提供能在各种容器中通用的算法，如插入、删除、查找、排序</p>
+</blockquote>
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p><strong>构造函数</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string s1();  // si = &quot;&quot;</span><br><span class="line">string s2(&quot;Hello&quot;);  // s2 = &quot;Hello&quot;</span><br><span class="line">string s3(4, &apos;K&apos;);  // s3 = &quot;KKKK&quot;</span><br><span class="line">string s4(&quot;12345&quot;, 1, 3);  //s4 = &quot;234&quot;，即 &quot;12345&quot; 的从下标1开始，长度为3的子串，也可以是另一个string，不一定是字符串常量</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用方法</strong><br><code>s.length();</code></p>
+<ul>
+<li>返回字符串的长度</li>
+</ul>
+<p><code>s.substr(start[,length]);</code></p>
+<ul>
+<li>返回从start开始(长度为length)的子串</li>
+</ul>
+<p><code>s1.swap(s2);</code></p>
+<ul>
+<li>交换两个字符串的内容</li>
+</ul>
+<p><code>s.find(&#39;a&#39;)</code></p>
+<ul>
+<li>从前向后查找字符’a’首次出现的位置，否则返回string::npos</li>
+</ul>
+<p><code>s.find(&quot;abc&quot;,3)</code></p>
+<ul>
+<li>从下标3开始，从前向后查找子串”abc”首次出现的位置，否则返回string::npos</li>
+</ul>
+<p><code>s.replace(start, len, &quot;xxx&quot;)</code></p>
+<ul>
+<li>从start开始，长度为len的子串替换为”xxx”</li>
+<li>也可以用来子串的删除，替换为””就好了</li>
+<li>也可以用来子串的插入，长度为0就好了</li>
+</ul>
+<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><h2 id="仿函数"><a href="#仿函数" class="headerlink" title="仿函数"></a>仿函数</h2><h2 id="内存配置器"><a href="#内存配置器" class="headerlink" title="内存配置器"></a>内存配置器</h2><h2 id="配接器"><a href="#配接器" class="headerlink" title="配接器"></a>配接器</h2>
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/C/">C++</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/12/关于记事本自动给文件开头添加两个字节的问题/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">关于记事本自动给文件开头添加两个字节的问题</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/12/DES算法学习/">
+        <span class="next-text nav-default">DES算法学习�库���</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">Lollipop43.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

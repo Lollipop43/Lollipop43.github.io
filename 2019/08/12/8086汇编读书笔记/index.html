@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="8086汇编读书笔记">
+
+
+
+
+  <meta name="keywords" content="汇编,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="归">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/08/12/8086汇编读书笔记/">
+
+
+<meta name="description" content="第一章 汇编语言基础知识什么是汇编语言 汇编语言是最接近机器语言的低级语言 编写汇编语言程序的四个步骤：编辑、汇编、链接（link）、执行 汇编语言与机器和操作系统都有关系  为什么学习汇编 汇编语言的特点：控制强、代码短、速度快控制强：最接近机器语言，所以可以更好地控制计算机代码短：编译后生成的可执行代码比高级语言短 汇编语言通常用于编写：操作系统，驱动程序，对控制、速度有要求的程序还用于：反病">
+<meta name="keywords" content="汇编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="8086汇编读书笔记">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/8086汇编读书笔记/index.html">
+<meta property="og:site_name" content="归">
+<meta property="og:description" content="第一章 汇编语言基础知识什么是汇编语言 汇编语言是最接近机器语言的低级语言 编写汇编语言程序的四个步骤：编辑、汇编、链接（link）、执行 汇编语言与机器和操作系统都有关系  为什么学习汇编 汇编语言的特点：控制强、代码短、速度快控制强：最接近机器语言，所以可以更好地控制计算机代码短：编译后生成的可执行代码比高级语言短 汇编语言通常用于编写：操作系统，驱动程序，对控制、速度有要求的程序还用于：反病">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="f:%5C2019%E6%98%A5%E5%A4%8F%5C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%5CIntel%E6%B1%87%E7%BC%968086%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%5Cfigures%5C1553826131878.png">
+<meta property="og:image" content="f:%5C2019%E6%98%A5%E5%A4%8F%5C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%5CIntel%E6%B1%87%E7%BC%968086%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%5Cfigures%5C1556622202592.png">
+<meta property="og:updated_time" content="2019-08-13T05:00:59.106Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="8086汇编读书笔记">
+<meta name="twitter:description" content="第一章 汇编语言基础知识什么是汇编语言 汇编语言是最接近机器语言的低级语言 编写汇编语言程序的四个步骤：编辑、汇编、链接（link）、执行 汇编语言与机器和操作系统都有关系  为什么学习汇编 汇编语言的特点：控制强、代码短、速度快控制强：最接近机器语言，所以可以更好地控制计算机代码短：编译后生成的可执行代码比高级语言短 汇编语言通常用于编写：操作系统，驱动程序，对控制、速度有要求的程序还用于：反病">
+<meta name="twitter:image" content="f:%5C2019%E6%98%A5%E5%A4%8F%5C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%5CIntel%E6%B1%87%E7%BC%968086%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%5Cfigures%5C1553826131878.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 8086汇编读书笔记 - 归 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">归</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          8086汇编读书笔记
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 12 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="第一章-汇编语言基础知识"><a href="#第一章-汇编语言基础知识" class="headerlink" title="第一章 汇编语言基础知识"></a>第一章 汇编语言基础知识</h2><h4 id="什么是汇编语言"><a href="#什么是汇编语言" class="headerlink" title="什么是汇编语言"></a>什么是汇编语言</h4><ol>
+<li>汇编语言是最接近机器语言的低级语言</li>
+<li>编写汇编语言程序的四个步骤：编辑、汇编、链接（link）、执行</li>
+<li>汇编语言与<strong>机器</strong>和<strong>操作系统</strong>都有关系</li>
+</ol>
+<h4 id="为什么学习汇编"><a href="#为什么学习汇编" class="headerlink" title="为什么学习汇编"></a>为什么学习汇编</h4><ol>
+<li>汇编语言的特点：控制强、代码短、速度快<br>控制强：最接近机器语言，所以可以更好地控制计算机<br>代码短：编译后生成的可执行代码比高级语言短</li>
+<li>汇编语言通常用于编写：操作系统，驱动程序，对控制、速度有要求的程序<br>还用于：反病毒、软件加密、逆向工程</li>
+<li>软件加密的三种方式：<br>磁盘加密：在软盘的某个特殊磁道上存有特殊信息，只能读取无法复制<br>软件狗加密：一种硬件设备<br>序列号加密：不难理解<ul>
+<li>无论使用哪种方式加密，必须有一段代码来检测加密信息，这段代码必须晦涩难懂来防止被篡改从而绕过加密程序——汇编语言上场了</li>
+</ul>
+</li>
+</ol>
+<h2 id="第二章-数据的表示方式和运算"><a href="#第二章-数据的表示方式和运算" class="headerlink" title="第二章 数据的表示方式和运算"></a>第二章 数据的表示方式和运算</h2><ol>
+<li><p>汇编语言中的16进制数以h结尾，若第一个数是字母还需要加个前缀0</p>
+</li>
+<li><p>一个<strong>字</strong>由16位组成，段地址和偏移地址都是字类型</p>
+</li>
+<li><p>ASCII字符表，32个一组共分为4组</p>
+<p>第一组：控制和打印字符，不同的输出设备效果不同<br>第二组：标点符号、数字字符、特殊字符<br>第三组：大写字母、特殊字符<br>第四组：小写字母、特殊字符、1个delete字符</p>
+</li>
+<li><p>8086存储器中，负数以补码方式表示，如-10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-10</span><br><span class="line">绝对值：0000 0000 0000 1010</span><br><span class="line">　取反：1111 1111 1111 0101</span><br><span class="line">　加一：1111 1111 1111 0110</span><br><span class="line">所以-10表示为：1111 1111 1111 0110</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="第三章-8086微型计算机系统组成"><a href="#第三章-8086微型计算机系统组成" class="headerlink" title="第三章 8086微型计算机系统组成"></a>第三章 8086微型计算机系统组成</h2><ol>
+<li>微型计算机是一些设备的统称，包括：单片机、单板机、个人电脑，均包括硬件和软件</li>
+<li>系统总线是计算机总线的组成之一，包括<strong>数据总线</strong>、<strong>地址总线</strong>和<strong>控制总线</strong></li>
+</ol>
+<h3 id="8086处理器的寄存器"><a href="#8086处理器的寄存器" class="headerlink" title="8086处理器的寄存器"></a>8086处理器的寄存器</h3><p>共有14个16位寄存器，包括8个通用寄存器、4个段寄存器和2个控制寄存器</p>
+<h4 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h4><p>①<strong>数据寄存器：AX BX CX DX</strong></p>
+<blockquote>
+<p>每一个都是16位，又可以将高8位，低8位作为独立的寄存器<br>高8位记作AH BH CH DH，低8位记作AL BL CL DL</p>
+<ul>
+<li>AX：accumulator，累加器</li>
+<li>BX：base，基址</li>
+<li>CX：count，计数器</li>
+<li>DX：data，数据</li>
+</ul>
+</blockquote>
+<p>②<strong>变址寄存器：SI DI</strong></p>
+<ul>
+<li>SI：source，源变址寄存器</li>
+<li>DI：destination，目的变址寄存器</li>
+</ul>
+<p>③<strong>地址指针寄存器：SP BP</strong></p>
+<ul>
+<li>SP：stack，存放偏移地址</li>
+<li>BP：base，基址指针寄存器</li>
+</ul>
+<h4 id="段寄存器：CS-DS-SS-ES"><a href="#段寄存器：CS-DS-SS-ES" class="headerlink" title="段寄存器：CS DS SS ES"></a>段寄存器：CS DS SS ES</h4><ul>
+<li>CS：code，存放<strong>代码段</strong>的段地址</li>
+<li>SS：stack，存放<strong>堆栈段</strong>的段地址</li>
+<li>DS：data，存放<strong>数据段</strong>的段地址</li>
+<li>ES：extra，附加数据寄存器，存放<strong>附加段</strong>的段地址</li>
+</ul>
+<h4 id="控制寄存器：IP-FL"><a href="#控制寄存器：IP-FL" class="headerlink" title="控制寄存器：IP FL"></a>控制寄存器：IP FL</h4><ul>
+<li>IP：指令指针寄存器（instruction pointer），存放代码段的偏移地址，<code>CS:IP</code>始终指向下一条指令的首字节</li>
+<li>FL：标志寄存器，只用其中的9位，6个状态标志和3个控制标志</li>
+</ul>
+<h3 id="8086的内存组织"><a href="#8086的内存组织" class="headerlink" title="8086的内存组织"></a>8086的内存组织</h3><ol>
+<li><p>8086CPU共有20根地址线，物理地址有20位，可访问的存储器容量为2^20^  bytes，然而寄存器和数据通路都是16位的，寻址的范围为2^16^ bytes，需要16位的地址，怎么解决:question:</p>
+</li>
+<li><p>从物理0地址开始，16个字节为一个节，每个段的物理首地址用16进制表示时，最低位必须时0</p>
+</li>
+<li><p>在编程时将存储器进行划分成段，每个段的大小可以在64K（16位地址）范围内选取任意字节</p>
+</li>
+<li><p>如此一来，存储器的逻辑组织成为这样<br>  ![1553783322362.png][1]</p>
+</li>
+<li><p>所谓段地址就是段起始地址的高16位，如段起始地址为002430h，则段地址就是00243h，所以寻址时，在确定了段地址的情况下，段的大小最大为64K，在这个段内，相对段首的偏移范围是64K，16位就可以确定任何一个段内的地址，与数据通路、寄存器位数一致</p>
+</li>
+<li><p>为了在20位地址线的存储器中产生16位的地址，其中有两处巧妙之处：</p>
+<ul>
+<li>段地址：确定为  后4位全为0的物理地址，从00000h~0000Fh，需要<strong>16位地址线</strong>来确定这些段首地址</li>
+<li>偏移地址：确定了一个段之后，段的大小是2^16^，<strong>16位地址线</strong>可以确定段内的任何一个物理地址</li>
+<li>由此一来，在寄存器中可以使用<strong>段地址+偏移地址</strong>（这两种地址都是16位，不难理解）来唯一确定某一个物理内存，通过简单的计算就可以转换位一个20位的物理地址用于总线寻址。</li>
+</ul>
+</li>
+<li><p>按照上述规定，通常段都是这样分配的：<br>  ![1553785348521.png][2]</p>
+</li>
+<li><p>段在存储器中分配是由操作系统负责的，至于如此划分是不是会觉得浪费了存储器空间（20位相当于只使用了16位），其实不然，如果在程序中某一段会超过64K的空间，那么就需要动态调整段寄存器，这样并不会应段的划分而限制存储器的使用</p>
+</li>
+</ol>
+<h3 id="CPU寻址"><a href="#CPU寻址" class="headerlink" title="CPU寻址"></a>CPU寻址</h3><ol>
+<li><p>寻址</p>
+<ul>
+<li>先从四个段寄存器中提取出当前段的地址，</li>
+<li>然后从偏移地址寄存器、常数等获得偏移地址，</li>
+<li>再将2个16位的逻辑地址（段地址+偏移地址）映射为一个20位的物理地址</li>
+</ul>
+</li>
+<li><p>想要表示一个物理地址，<code>段地址:偏移地址</code>，或者，<code>[段寄存器名:偏移地址]</code>，或者，<code>段寄存器名:[偏移地址寄存器名]</code></p>
+<ul>
+<li><code>1234h:0100h</code>，或者，<code>DS:[0100h]</code>，或者<code>DS:[BX]</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="数据在存储器中的存放"><a href="#数据在存储器中的存放" class="headerlink" title="数据在存储器中的存放"></a>数据在存储器中的存放</h3><p><strong>小端原则</strong></p>
+<p>一个存储单元是8位，大于8位的数据就需要占据多个存储单元，存储原则是低位占据低地址，高位占据高地址，例如</p>
+<ul>
+<li>7B86h在存储时，低地址先存入低位86h，高地址再存入高位7Bh（存储时的指针是从低地址移向高地址的）</li>
+</ul>
+<h2 id="第四章-8086寻址方式和指令系统"><a href="#第四章-8086寻址方式和指令系统" class="headerlink" title="第四章 8086寻址方式和指令系统"></a>第四章 8086寻址方式和指令系统</h2><h3 id="指令结构"><a href="#指令结构" class="headerlink" title="指令结构"></a>指令结构</h3><ol>
+<li>指令由操作码opcode+操作数operand构成<ul>
+<li>无操作数指令、单操作数指令、双操作数指令</li>
+</ul>
+</li>
+</ol>
+<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><ol>
+<li><p>立即数方式——操作数为常数<br>mov ah, 2<br>add bx, 1234h</p>
+</li>
+<li><p>寄存器方式<br>inc bp<br>add ax, bx<br>jmp dx</p>
+</li>
+<li><p>直接寻址——直接操作某个存储单元<br>mov ds:[10ABh], al<br>mov bx, es:[8B90h]<br>sub byte ptr ss:[0FFC0h], 1</p>
+</li>
+<li><p>间接寻址——偏移地址中含有基址寄存器（BX BP）或者变址寄存器（SI DI）<br>一般格式为：<code>基址寄存器+变址寄存器+位移量</code><br>通过这三个元素的不同组合，间接寻址有以下8种形式：</p>
+<p>①[BX+位移]    ；缺省地址为DS</p>
+<ul>
+<li>mov ax, [bx+2]</li>
+<li>等价形式有：mov ax,[bx]+2；mov ax,2[bx]；mov ax,[bx] [2]</li>
+<li>操作数中省略段地址，默认为DS，否则应该为mov ax,ds:[bx+2]</li>
+</ul>
+<p>②[BX+SI+位移]</p>
+<p>③[BX+DI+位移]</p>
+<p>④[SI+位移]</p>
+<p>⑤[DI+位移]</p>
+<p>⑥[BP+位移]</p>
+<p>⑦[BP+SI+位移]</p>
+<p>⑧[BX+DI+位移]</p>
+</li>
+<li><p>直接寻址和间接寻址都需要段地址：只要偏移地址中有BP寄存器，则段地址是SS，否则均是DS</p>
+</li>
+</ol>
+<h3 id="指令系统"><a href="#指令系统" class="headerlink" title="指令系统"></a>指令系统</h3><h4 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h4><p>①mov——赋值</p>
+<ul>
+<li>mov 目标操作数 源操作数</li>
+<li><strong>操作数不能全部是内存变量</strong>（使用[ ]寻址寻到的）</li>
+<li><strong>不能把立即数赋值给段寄存器</strong></li>
+<li>不允许对CS进行赋值</li>
+<li><strong>不能用段寄存器对另一个段寄存器进行赋值</strong></li>
+<li>两个操作数的长度必须一致</li>
+<li>不影响任何标志位</li>
+</ul>
+<p>②push——压入堆栈</p>
+<ul>
+<li>push 操作数</li>
+<li>操作数必须是16位，不能是立即数</li>
+<li><strong>一个push操作使得当前堆栈指针-2</strong></li>
+<li>不影响任何标志位</li>
+</ul>
+<p>③pop——弹出堆栈</p>
+<ul>
+<li>pop 操作数</li>
+<li>从堆栈弹出一个16位值到操作数中</li>
+<li><strong>一个pop操作使得当前堆栈指针+2</strong></li>
+<li>操作数必须是16位，不能是立即数</li>
+<li>操作数不能是CS</li>
+<li>不影响任何标志位</li>
+</ul>
+<p>④xchg——交换</p>
+<ul>
+<li>xchg 操作数1，操作数2</li>
+<li><strong>操作数为内存数据或者寄存器，不能有段寄存器</strong></li>
+<li>不影响任何标志位</li>
+</ul>
+<h4 id="输入输出指令"><a href="#输入输出指令" class="headerlink" title="输入输出指令"></a>输入输出指令</h4><h2 id="第五章-汇编程序格式和程序调试"><a href="#第五章-汇编程序格式和程序调试" class="headerlink" title="第五章 汇编程序格式和程序调试"></a>第五章 汇编程序格式和程序调试</h2><h3 id="汇编程序格式"><a href="#汇编程序格式" class="headerlink" title="汇编程序格式"></a>汇编程序格式</h3><ol>
+<li>汇编程序是由段构成的，段是由语句构成的</li>
+<li>编程语言的语句可以分为3种，指令语句，伪指令语句，汇编指示语句</li>
+<li>伪指令语句在翻译之后会变成对应的数据定义；汇编指示语句为翻译程序提供一些段的定义，段的假设，程序的结束等信息，在翻译后自动小时，并不会被翻译成任何代码或数据</li>
+</ol>
+<h4 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">data segment						;数据段开始</span><br><span class="line">hey db &apos;Hello, world&apos;, 0Dh, 0Ah, &apos;$&apos;;定义变量hey</span><br><span class="line">data ends							;数据段结束</span><br><span class="line"></span><br><span class="line">code segment						;代码段开始</span><br><span class="line">assume cs:code, ds:data				;假设CS=code,DS=data</span><br><span class="line">main:								;定义标号main</span><br><span class="line">    mov ax, data					</span><br><span class="line">    mov ds, ax</span><br><span class="line">    mov ah,9						;AH=功能号9</span><br><span class="line">    mov dx, offset hey				;DX=hey的偏移地址</span><br><span class="line">    int 21h							;DOS中断，执行9号功能</span><br><span class="line">    mov ah, 4Ch						;AH=功能号4Ch（返回DOS）</span><br><span class="line">    int 21h							;DOS中断，执行4Ch号功能</span><br><span class="line">code ends							;代码段结束</span><br><span class="line">end main				;源程序结束，并指定程序从main开始执行</span><br></pre></td></tr></table></figure>
+
+<h4 id="段的定义、假设、引用"><a href="#段的定义、假设、引用" class="headerlink" title="段的定义、假设、引用"></a>段的定义、假设、引用</h4><ol>
+<li><p>段定义的一般格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">段名 segment [align] [combine] [&apos;class&apos;]</span><br><span class="line">	statements</span><br><span class="line">段名 ends</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>align：对齐方式，包括byte, word, dword, para(16字节，默认), page(256字节)</li>
+<li>combine：合并类型，包括public, stack, common, memory, at<ul>
+<li>public，在连接时，<strong>段名相同</strong>且为<strong>public</strong>的段会合并为一个段</li>
+<li>stack，堆栈段，<strong>段名相同</strong>且为<strong>stack</strong>的段会合并为一个段，并且段寄存器SS会初始化为该堆栈段的段地址，堆栈指针SP会初始化为<strong>堆栈段的末尾字节的偏移地址</strong>再加1，<strong>只要定义了堆栈段，就需要加上stack合并类型</strong></li>
+</ul>
+</li>
+<li>‘class’：类别名，用来在连接时把相同类别名的段放在一起，就像public的合并类型，但是可以没有段名的限制</li>
+</ul>
+</li>
+<li><p>段的假设<br>assume用来建立段寄存器和段的对应关系<br><code>assume 段寄存器：段名</code><br>相当于把段地址赋值给段寄存器，然而实际上只有CS和SS会被自动赋值，DS、ES还是需要用mov指令实际赋值</p>
+</li>
+<li><p>段的引用<br>定义了段之后我们其实并不知道段地址是多少，然而要想使用段中的变量，就必须得到段地址</p>
+<ul>
+<li><p>用段名引用段地址<br><code>mov ax, data</code></p>
+</li>
+<li><p>用seg运算符引用段地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">seg 变量名；表示该变量的段地址</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用seg运算符完全是吃饱了撑的</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="程序的结束"><a href="#程序的结束" class="headerlink" title="程序的结束"></a>程序的结束</h4><p><code>end 标号名</code></p>
+<ul>
+<li>这是一条独立的语句，并不合前面的语句有呼应关系</li>
+<li>end表示源程序到此结束，标号名表示将来程序运行时从该标号的定义处开始，否则如果省略标号名，程序会从指令的第一行开始执行</li>
+</ul>
+<h4 id="程序段前缀"><a href="#程序段前缀" class="headerlink" title="程序段前缀"></a>程序段前缀</h4><blockquote>
+<p>程序段前缀简称PSP，是一个长度100h字节的内存<br>这里存放命令行参数</p>
+</blockquote>
+<p>DOS在运行任何一个可执行程序时，首先分配一个PSP，然后读取程序文件的内容并且装入到紧随PSP之后的内存中，然后给相应的寄存器分配对应的段地址：<strong>给cs赋值为code段地址</strong>，<strong>给ss赋值为堆栈段地址</strong>，<strong>给es和ds赋值为首个段地址-10h（其实就是PSP的段地址）</strong></p>
+<ul>
+<li><p>这就是为什么程序开始总是使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov ax, data</span><br><span class="line">mov ds, ax</span><br></pre></td></tr></table></figure>
+
+<p>用来指定data段的段地址——因为ds的地址被操作系统分配了psp的段地址但却不是我们想要的</p>
+</li>
+<li><p>唯独剩下ss寄存器<br>若定义了堆栈段，则会赋值为该段地址，而且sp寄存器赋值为该段的长度</p>
+</li>
+</ul>
+<h4 id="程序的终止"><a href="#程序的终止" class="headerlink" title="程序的终止"></a>程序的终止</h4><p>最后一句end有两个作用：</p>
+<ul>
+<li>只是表示源代码的结束，在编译之后end将会消失，</li>
+<li>告诉DOS去把后面的标号段地址赋值给IP，然后程序从这里开始</li>
+</ul>
+<p>然而程序运行起来之后并不会终止</p>
+<p>因此，通常调用DOS的4Ch号功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ah, 4Ch</span><br><span class="line">mov al, 返回码</span><br><span class="line">int 21h</span><br></pre></td></tr></table></figure>
+
+<p>AL中的返回码用来传递本程序的返回信息给父程序，所谓父程序就是当前运行程序的调用者，大多数情况下我们DOS并不使用返回码，也就是说可以不管返回码</p>
+<h4 id="汇编语言的语句"><a href="#汇编语言的语句" class="headerlink" title="汇编语言的语句"></a>汇编语言的语句</h4><ol>
+<li><p>常数<br>①整型常数：</p>
+<ul>
+<li>8位，16位，32位，可正可负，各种进制</li>
+<li>十进制无后缀，八进制q后缀，二进制b后缀，十六进制h后缀</li>
+</ul>
+<p>②字符常数：</p>
+<ul>
+<li>单引号或双引号括起来的<strong>单个字符</strong>，在数值上等于该字符负ASCII值，通常用作变量定义的初始值</li>
+</ul>
+<p>③字符串常数</p>
+</li>
+</ol>
+<ul>
+<li>单引号或双引号括起来的<strong>一串字符</strong>，并没有C语言中隐含的‘\0’结束符，需要手动加上‘$’表示字符串的结束</li>
+</ul>
+<ol start="2">
+<li><p>常数表达式<br>常数与运算符结合构成常数表达式<br><em>汇编语言支持的常数表达式运算符</em><br><img src="F:%5C2019%E6%98%A5%E5%A4%8F%5C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%5CIntel%E6%B1%87%E7%BC%968086%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%5Cfigures%5C1553826131878.png" alt="1553826131878"></p>
+</li>
+<li><p>符号常数<br>以符号形式存在的常数，用equ或者=来定义<br>相当于define语句</p>
+<ul>
+<li>equ：操作数可以是数值，字符，字符串，常量表达式，汇编语句</li>
+<li>=：操作数可以是数值，字符，常数表达式，同一个符号还可以二次重新定义<h4 id="变量与标号"><a href="#变量与标号" class="headerlink" title="变量与标号"></a>变量与标号</h4></li>
+</ul>
+</li>
+<li><p>变量名与标号名中的字符包括大小写字母，数字，和<code>@</code> <code>$</code> <code>?</code> <code>_</code>4个特殊字符</p>
+</li>
+<li><p>不能以数字开头，字符个数最多31，不区分大小写，不能重复定义，不能是关键字</p>
+</li>
+<li><p>变量的定义：</p>
+<ul>
+<li>db：define byte，8位</li>
+<li>dw：define word，16位</li>
+<li>dd：define double word，32位</li>
+</ul>
+<p>当db,dw,dd后面是多个值时表示定义的是该类型的数组<br>对于数组的初始化，除了写出所有的值，也可以使用dup运算符</p>
+<ul>
+<li><code>abd db 100 dup(0)</code><br>表示定义了db类型的数组，共100个元素，每个都初始化为0</li>
+<li><code>xyz db 100 dup(1,2)</code><br>表示定义了db类型的数组，共100个元素，使用1,2连续进行初始化，重复50次，即1,2,1,2,1,2……</li>
+<li>dup还允许嵌套<br><code>y db 2 dup(&#39;A&#39;, 2 dup(&#39;B&#39;), &#39;C&#39;)</code><br>相当于<br><code>y db 2 &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;, &#39;B&#39;, &#39;B&#39;, &#39;B&#39;, &#39;C&#39;</code></li>
+</ul>
+</li>
+<li><p>标号的定义<br>标号的作用是用作跳转（jmp， jnz）或者调用（call）的目标<br>标号名加冒号</p>
+</li>
+<li><p>label</p>
+<p><code>标号名 label far|near</code></p>
+<ul>
+<li>near：近标号，使得这个标号名只表示在这个段中的偏移地址，标号名加冒号默认是近标号</li>
+<li>far：远标号，使得这个标号名表示这个段的段地址和偏移地址，如果jump指令和该标号不在同一个段中，就需要定义为远标号</li>
+</ul>
+<p><code>标号名 label byte|word|dword</code></p>
+<ul>
+<li><p>这实际上是在定义变量</p>
+</li>
+<li><p>使得可以在同一地址上定义不同变量——这不是扯呢吗</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">www label word</span><br><span class="line">abc db 12h, 34h</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>变量的引用</p>
+<p>直接使用变量名或者[变量名]都可以表示该变量的值</p>
+</li>
+<li><p>强制类型转换——ptr运算符</p>
+<ul>
+<li>byte ptr</li>
+<li>word ptr</li>
+<li>dword ptr</li>
+<li>near ptr</li>
+<li>far ptr</li>
+<li>使用强制类型转换时，必须和前面的寄存器长度一致</li>
+</ul>
+</li>
+<li><p>汇编器在翻译程序时，会使用一个位置计数器变量来记录当前段内的偏移地址，当遇到一个段定义的开始时，位置计数器就会重置为0，可以使用一个特殊的操作数$来得到当前位置计数器的值</p>
+</li>
+<li><p>org伪指令可以改变当前位置计数器的值，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data segment</span><br><span class="line">org 1000h</span><br><span class="line">abc db &apos;hello&apos;</span><br><span class="line">org $+1000h</span><br><span class="line">xyz db &apos;torcy&apos;</span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
+
+<p>如此，变量abc的偏移地址就是1000h而不是默认的0000h，变量xyz的偏移地址就是1000h+0001h+1000h</p>
+</li>
+</ol>
+<h4 id="可执行程序"><a href="#可执行程序" class="headerlink" title="可执行程序"></a>可执行程序</h4><ol>
+<li>exe<ul>
+<li>格式比较自由</li>
+<li>但最终编译出来的程序文件会比com长，因为要包含exe文件头</li>
+</ul>
+</li>
+<li>com<ul>
+<li>只能有一个代码段，没有数据段，也不可以定义堆栈段</li>
+<li>不能含有引用段名或者段地址的语句</li>
+<li>程序入口的偏移地址必须是100h，也就是说末尾必须用end指定100h</li>
+<li>装载了程序文件一开始，所有的寄存器段地址都被提前设置好了</li>
+</ul>
+</li>
+</ol>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>使用tasm编译汇编程序，并且产生可调试信息</p>
+<ol>
+<li>tasm /zi /zd 文件名</li>
+<li>tlink /v 文件名</li>
+</ol>
+<h3 id="堆栈段"><a href="#堆栈段" class="headerlink" title="堆栈段"></a>堆栈段</h3><ol>
+<li><p>当源程序中没有定义堆栈段时，操作系统会自动分配一个堆栈段，其中ss=首个段的地址，sp=0</p>
+</li>
+<li><p>不能用<strong>[sp]</strong>或<strong>[sp+常数或其它寄存器]</strong>的形式来引用某个变量。</p>
+<ul>
+<li><p>为了弥补sp不能表示间接地址的缺陷，同时也为了凑齐4个偏移地址寄存器，于是从通用寄存器中找来bx作为sp的替补，于是就有了以下4个偏移地址寄存器:<code>bx, bp, si, di</code></p>
+</li>
+<li><p>即这4个寄存器都可以放在[]中表示变量的偏移地址。</p>
+</li>
+<li><p>[ax], [cx], [dx]均是错误的。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="FL寄存器"><a href="#FL寄存器" class="headerlink" title="FL寄存器"></a>FL寄存器</h3><table>
+<thead>
+<tr>
+<th>15</th>
+<th>14</th>
+<th>13</th>
+<th>12</th>
+<th>11</th>
+<th>10</th>
+<th>9</th>
+<th>8</th>
+<th>7</th>
+<th>6</th>
+<th>5</th>
+<th>4</th>
+<th>3</th>
+<th>2</th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>OF</td>
+<td>DF</td>
+<td>IF</td>
+<td>TF</td>
+<td>SF</td>
+<td>ZF</td>
+<td></td>
+<td>AF</td>
+<td></td>
+<td>PF</td>
+<td></td>
+<td>CF</td>
+</tr>
+</tbody></table>
+<p><strong>①CF：进位标志(carry flag)</strong></p>
+<ul>
+<li>只对非符号数有效，记录最高位的<strong>进位值</strong>或者*<em>借位值 *</em></li>
+<li>相关指令包括：JC, JNC, CLC, STC, CMC</li>
+<li>JC：jump if carry flag，有进位则跳；<strong>JC与JB等价</strong></li>
+<li>JNC：无进位则跳</li>
+<li>CLC：对CF置为0，clear carry flag</li>
+<li>STC：对CF置为1，set carry flag</li>
+<li>CMC：反转CF，complement carry flag </li>
+</ul>
+<p><strong>②PF：奇偶标志(parity flag)</strong></p>
+<ul>
+<li>运算结果中有偶数个1则给PF置位为1，否则置为0</li>
+<li>只统计低8位中1的个数</li>
+<li>相关指令：JP, JNP, JPE, JPO</li>
+<li>作用是奇偶校验</li>
+</ul>
+<p><strong>③AF：辅助进位标志(auxiliary flag)</strong></p>
+<ul>
+<li>低4位向高4位发生进位或者借位，都会置位AF=1</li>
+<li>跟BCD码有关，BCD的优点是可以快速的分离出十位和个位 </li>
+</ul>
+<p><strong>④ZF：零标志(zero flag)</strong></p>
+<ul>
+<li>当前计算结果为0，ZF置为1</li>
+<li>相关指令；JZ, JNZ</li>
+<li>JZ与JE等价，JNZ与JNE等价</li>
+</ul>
+<p><strong>⑤SF：符号标志(sign flag)</strong></p>
+<ul>
+<li>记录运算结果的符号，为负置1，为正置0</li>
+<li>JS：当SF=1则跳</li>
+<li>JNS：当SF=0则跳</li>
+</ul>
+<p><strong>⑥TF：跟踪标志(trace flag)</strong></p>
+<ul>
+<li>TF = 0时正常工作</li>
+<li>TF = 1时，<strong>每条指令</strong>执行后都会插入一个内部中断，允许程序在每条指令执行后进行检查</li>
+</ul>
+<p><strong>⑦IF：中断标志(interupt flag)</strong></p>
+<ul>
+<li>IF = 1，允许硬件中断；否则禁止硬件中断</li>
+<li>sti指令（set）使IF = 1；cli指令（clear）使IF = 0</li>
+<li>用cli和sti把一段代码包围起来，可以达到该段代码在执行过程中不会被打断的效果</li>
+<li>cli及sti在windows中属于特权指令，代码中不允许出现</li>
+</ul>
+<p><strong>⑧DF：方向标志(direction flag)</strong></p>
+<ul>
+<li><p>控制字符串的操作方向</p>
+</li>
+<li><p>DF = 0， 则正方向（低地址→高地址）；DF = 1，则负方向（高地址→低地址）</p>
+</li>
+<li><p>cld指令使DF = 0；std指令使DF = 1</p>
+</li>
+<li><p>若源数据首地址&gt;目标数据首地址，则复制时要按正方向</p>
+</li>
+<li><p>若源数据首地址&lt;目标数据首地址，则复制时要按负方向</p>
+<p><img src="F:%5C2019%E6%98%A5%E5%A4%8F%5C%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%5CIntel%E6%B1%87%E7%BC%968086%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%5Cfigures%5C1556622202592.png" alt="1556622202592"></p>
+</li>
+</ul>
+<p><strong>⑨OF：溢出标志(overflow flag)</strong></p>
+<ul>
+<li>计算结果有错误：正+正=负 或者 负+负=正，此时OF置为1</li>
+<li>相关指令：JO, JNO</li>
+</ul>
+<h2 id="第六章-顺序程序设计"><a href="#第六章-顺序程序设计" class="headerlink" title="第六章 顺序程序设计"></a>第六章 顺序程序设计</h2><h2 id="第七章-分支程序设计"><a href="#第七章-分支程序设计" class="headerlink" title="第七章 分支程序设计"></a>第七章 分支程序设计</h2><h2 id="第八章-循环程序设计"><a href="#第八章-循环程序设计" class="headerlink" title="第八章 循环程序设计"></a>第八章 循环程序设计</h2><h2 id="第九章-子程序设计"><a href="#第九章-子程序设计" class="headerlink" title="第九章 子程序设计"></a>第九章 子程序设计</h2><h2 id="第十章-中断"><a href="#第十章-中断" class="headerlink" title="第十章 中断"></a>第十章 中断</h2><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><blockquote>
+<p>CPU←→端口←→I/O设备</p>
+</blockquote>
+<ol>
+<li>端口编号就是端口地址，端口地址的范围是0~65535，对端口操作使用in和out指令</li>
+<li>通过端口来控制外部设备是最底层的手段</li>
+<li>由于直接使用in和out指令太过繁琐，故计算机厂商在主板上集成了BIOS(Basic Input Output System) </li>
+<li>以读取键盘为例，从高到低的编程方式有：<ul>
+<li>dos：mov ah, 1; int 21h——功能弱，但编程简单</li>
+<li>bios：mov ah, 0; int 16h</li>
+<li>in/out：in al, 60h——功能强，但编程麻烦99</li>
+</ul>
+</li>
+</ol>
+<h2 id="第十一章-MS-DOS、PC-BIOS系统调用"><a href="#第十一章-MS-DOS、PC-BIOS系统调用" class="headerlink" title="第十一章 MS-DOS、PC-BIOS系统调用"></a>第十一章 MS-DOS、PC-BIOS系统调用</h2><h2 id="第十二章-内存分配与文件操作"><a href="#第十二章-内存分配与文件操作" class="headerlink" title="第十二章 内存分配与文件操作"></a>第十二章 内存分配与文件操作</h2><p>[2]: <a href="http://120.78.88.54/usr/uploads/2019/05/2569005420.png[1]" target="_blank" rel="noopener">http://120.78.88.54/usr/uploads/2019/05/2569005420.png[1]</a>: <a href="http://120.78.88.54/usr/uploads/2019/05/3839955247.png" target="_blank" rel="noopener">http://120.78.88.54/usr/uploads/2019/05/3839955247.png</a></p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/汇编/">汇编</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/12/DES算法学习/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">DES算法学习�库���</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/11/JavaScript基础/">
+        <span class="next-text nav-default">JavaScript基础</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">Lollipop43.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

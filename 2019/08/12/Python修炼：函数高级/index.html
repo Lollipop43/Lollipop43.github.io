@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="Python修炼：函数高级">
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="归">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/08/12/Python修炼：函数高级/">
+
+
+<meta name="description" content="高阶函数1.函数名也是变量，可以把函数名赋值给变量，相当于给函数起了一个别名 2.一个可以接受函数作为参数的函数称为高阶函数 map1.map(func，iterable)函数接受两个参数，一个是函数，一个是可迭代对象 2.遍历对象中的每个元素，并将其传入参数函数，将结果组成一个新的list 3.不会改变原可迭代对象，返回结果 reduce1.reduce(func，iterable)函数接受两个">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python修炼：函数高级">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/Python修炼：函数高级/index.html">
+<meta property="og:site_name" content="归">
+<meta property="og:description" content="高阶函数1.函数名也是变量，可以把函数名赋值给变量，相当于给函数起了一个别名 2.一个可以接受函数作为参数的函数称为高阶函数 map1.map(func，iterable)函数接受两个参数，一个是函数，一个是可迭代对象 2.遍历对象中的每个元素，并将其传入参数函数，将结果组成一个新的list 3.不会改变原可迭代对象，返回结果 reduce1.reduce(func，iterable)函数接受两个">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T05:00:59.152Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python修炼：函数高级">
+<meta name="twitter:description" content="高阶函数1.函数名也是变量，可以把函数名赋值给变量，相当于给函数起了一个别名 2.一个可以接受函数作为参数的函数称为高阶函数 map1.map(func，iterable)函数接受两个参数，一个是函数，一个是可迭代对象 2.遍历对象中的每个元素，并将其传入参数函数，将结果组成一个新的list 3.不会改变原可迭代对象，返回结果 reduce1.reduce(func，iterable)函数接受两个">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> Python修炼：函数高级 - 归 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">归</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Python修炼：函数高级
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 12 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>1.函数名也是变量，可以把函数名赋值给变量，相当于给函数起了一个别名</p>
+<p>2.一个可以接受函数作为参数的函数称为<strong>高阶函数</strong></p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>1.map(func，iterable)函数接受两个参数，一个是函数，一个是可迭代对象</p>
+<p>2.遍历对象中的每个元素，并将其传入参数函数，将结果组成一个新的list</p>
+<p>3.不会改变原可迭代对象，返回结果</p>
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>1.reduce(func，iterable)函数接受两个参数，一个是函数，一个是可迭代对象</p>
+<p>2.reduce遍历对象的每个元素，然后将结果与下一个元素继续传入参数函数</p>
+<p>3.几个使用map/reduce的小栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">from functools import reduce</span><br><span class="line"></span><br><span class="line">def normalize(name):</span><br><span class="line">    return name[0].upper() + name[1:].lower()</span><br><span class="line">L1 = [&apos;adam&apos;, &apos;LISA&apos;, &apos;barT&apos;]</span><br><span class="line">L2 = list(map(normalize, L1))</span><br><span class="line">print(L2)</span><br><span class="line">#------------------------------------------</span><br><span class="line">def prod(L):</span><br><span class="line">    def multiply(x,y):</span><br><span class="line">        return x*y</span><br><span class="line">    return reduce(multiply,L)</span><br><span class="line">print(&apos;3 * 5 * 7 * 9 =&apos;, prod([3, 5, 7, 9]))</span><br><span class="line">#-------------------------------------------</span><br><span class="line">def str2float(str):</span><br><span class="line">    #save the index of &apos;.&apos;</span><br><span class="line">    l = len(str)</span><br><span class="line">    idx = str.index(&apos;.&apos;)</span><br><span class="line">    str = str.replace(&apos;.&apos;,&apos;&apos;)</span><br><span class="line">    DIGITS = &#123;&apos;0&apos;: 0, &apos;1&apos;: 1, &apos;2&apos;: 2, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;5&apos;: 5, &apos;6&apos;: 6, &apos;7&apos;: 7, &apos;8&apos;: 8, &apos;9&apos;: 9&#125;</span><br><span class="line">    def chr2num(chr):</span><br><span class="line">        return DIGITS[chr]</span><br><span class="line">    def fn(x,y):</span><br><span class="line">        return x*10+y</span><br><span class="line">    return reduce(fn,list(map(chr2num, str))) / 10**(l-idx-1)</span><br><span class="line"></span><br><span class="line">print(str2float(&quot;123.456&quot;))</span><br></pre></td></tr></table></figure>
+
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>1.filter(func,iterable)接受两个参数，一个函数和一个序列</p>
+<p>2.filter的作用是，对每一个元素都调用func函数然后根据返回值是true还是false决定保留还是丢弃该元素</p>
+<p>3.一些小栗子：<br>①删掉list中的偶数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def is_odd(n):</span><br><span class="line">    return n % 2 == 1</span><br><span class="line">print(list(filter(is_odd,[1,2,3,4,5,6,7,8,9])))</span><br></pre></td></tr></table></figure>
+
+<p>②产生素数序列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#------------------</span><br><span class="line">#从3开始的奇数序列</span><br><span class="line">def _odd_iter():</span><br><span class="line">    n = 1</span><br><span class="line">    while True:</span><br><span class="line">        n += 2</span><br><span class="line">        yield n</span><br><span class="line">#过滤函数</span><br><span class="line">def _not_divisible(n):</span><br><span class="line">    return lambda x: x % n &gt; 0</span><br><span class="line"></span><br><span class="line">#素数生成器</span><br><span class="line">def primes():</span><br><span class="line">    yield 2</span><br><span class="line">    it = _odd_iter() # 初始序列</span><br><span class="line">    while True:</span><br><span class="line">        n = next(it) # 返回序列的第一个数</span><br><span class="line">        yield n</span><br><span class="line">        it = filter(_not_divisible(n), it) # 构造新序列</span><br><span class="line">#-------------------</span><br><span class="line">for n in primes():</span><br><span class="line">    if n &lt; 1000:</span><br><span class="line">        print(n)</span><br><span class="line">    else:</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h3><p>1.内置函数sorted可以对list进行排序</p>
+<p>2.使用方法<br>①升序排序<br><code>sorted([36, 5, -12, 9, -21])</code></p>
+<p>②使用自定义比较器<br><code>sorted([36, 5, -12, 9, -21],key=abs)</code></p>
+<ul>
+<li>key是一个命名关键字参数</li>
+<li>key指定的函数将作用于list每一个元素上，重组成新的list进行排序</li>
+</ul>
+<p>③降序排序<br><code>sorted([36, 5, -12, 9, -21],key=abs, reverse = True)</code></p>
+<ul>
+<li>reverse也是一个命名关键字参数<h2 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h2><h3 id="函数作为返回值"><a href="#函数作为返回值" class="headerlink" title="函数作为返回值"></a>函数作为返回值</h3></li>
+</ul>
+<p>1.一个栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def lazy_sum(*args):</span><br><span class="line">    def sum():</span><br><span class="line">        res = 0</span><br><span class="line">        for n in args:</span><br><span class="line">            res += n</span><br><span class="line">        return res</span><br><span class="line">    return sum</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当调用lazy_sum(1,2,3,4,5,6)时，并不会立即求和，而只是将参数传递给了内部的sum函数</li>
+<li>lazy_sum()的返回值是一个函数(内部的sum函数)，再次调用该函数才会执行求和运算</li>
+<li>注意调用lazy_sum()每次返回的都是一个新函数<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3></li>
+</ul>
+<p>1.内函数使用外函数的变量，然后将内函数作为外函数的返回值返回</p>
+<blockquote>
+<p>注意不要在内函数中使用任何会在外函数中发生变化的变量</p>
+</blockquote>
+<p>2.如果一定要在内函数3中使用循环变量，解决办法就是在外函数1和内函数3中间，再加上一个函数2用来把循环变量传递给内函数3，在函数2中把函数3作为结果返回。此时3是2的闭包，2是1的闭包</p>
+<p>3.一个小栗子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#计数器</span><br><span class="line">def createCounter():</span><br><span class="line">    def hh():</span><br><span class="line">        i = 1</span><br><span class="line">        while True:</span><br><span class="line">            yield i</span><br><span class="line">            i += 1</span><br><span class="line">    it = hh()</span><br><span class="line">    def counter():</span><br><span class="line">        return next(it)</span><br><span class="line">    return counter;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>将生成器作为闭包返回，每次调用闭包就会调用一次生成器</li>
+<li>每调用一次返回一个整数<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2></li>
+</ul>
+<p>1.关键字<code>lambda</code>表示匿名函数</p>
+<p>2.<code>lambda x: x*x</code>相当于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def f(x):</span><br><span class="line">    return x*x</span><br></pre></td></tr></table></figure>
+
+<p>3.函数内只能有一个表达式，不用写return，返回值就是该表达式的值</p>
+<p>4.匿名函数的好处是：不用起函数名，简化代码</p>
+<p>5.也可以将匿名函数赋值给一个变量，再利用该变量来调用该函数</p>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p>1.在代码运行期间给函数增加功能的方式称之为装饰器</p>
+<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2><p>1.当频繁使用带有关键字参数的某个函数时(注意并不是默认参数，所以需要手动写出)，可以创建一个偏函数指定使用该关键字参数</p>
+<p>2.这得益于functools模块中的partial函数</p>
+<ul>
+<li>partial函数接受三个参数：要制定的函数对象、<em>args、*</em>kw</li>
+</ul>
+<p>3.一个栗子</p>
+<p><code>int2 = functools.partial(int, base = 2)</code></p>
+<ul>
+<li>每次调用int2函数，就会默认使用base=2</li>
+</ul>
+<p><code>max10 = functools.partial(max, 10)</code></p>
+<ul>
+<li>每次调用max10函数，就会默认把10加入到参数列表中</li>
+</ul>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/Python/">Python</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/12/Python修炼：函数/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Python修炼：函数�</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/12/Python修炼：输入输出/">
+        <span class="next-text nav-default">Python修炼：输入输出类型</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">Lollipop43.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>

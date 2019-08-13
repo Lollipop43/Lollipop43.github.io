@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="Python修炼：函数�">
+
+
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="归">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/08/12/Python修炼：函数/">
+
+
+<meta name="description" content="函数1.函数名其实就是一个函数对象的引用，因此可以把一个函数名赋值给另一个变量，相当于给函数起了一个别名2.定义函数使用def3.pass语句可以暂时跳过当前代码块，在函数式编程中有用，让功能不完整的程序运行起来，不至于报错4.函数返回值是一个tuple，不过括号可以省略不写，因此可以返回多个值 函数的参数1.默认参数  默认参数从右向左，产生重载 默认参数必须指向不变对象(*)  2.可变参数">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python修炼：函数�">
+<meta property="og:url" content="http://yoursite.com/2019/08/12/Python修炼：函数/index.html">
+<meta property="og:site_name" content="归">
+<meta property="og:description" content="函数1.函数名其实就是一个函数对象的引用，因此可以把一个函数名赋值给另一个变量，相当于给函数起了一个别名2.定义函数使用def3.pass语句可以暂时跳过当前代码块，在函数式编程中有用，让功能不完整的程序运行起来，不至于报错4.函数返回值是一个tuple，不过括号可以省略不写，因此可以返回多个值 函数的参数1.默认参数  默认参数从右向左，产生重载 默认参数必须指向不变对象(*)  2.可变参数">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T05:00:59.148Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python修炼：函数�">
+<meta name="twitter:description" content="函数1.函数名其实就是一个函数对象的引用，因此可以把一个函数名赋值给另一个变量，相当于给函数起了一个别名2.定义函数使用def3.pass语句可以暂时跳过当前代码块，在函数式编程中有用，让功能不完整的程序运行起来，不至于报错4.函数返回值是一个tuple，不过括号可以省略不写，因此可以返回多个值 函数的参数1.默认参数  默认参数从右向左，产生重载 默认参数必须指向不变对象(*)  2.可变参数">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> Python修炼：函数� - 归 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">归</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Python修炼：函数�
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 12 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>1.函数名其实就是一个函数对象的引用，因此可以把一个函数名赋值给另一个变量，相当于给函数起了一个别名<br>2.定义函数使用def<br>3.pass语句可以暂时跳过当前代码块，在函数式编程中有用，让功能不完整的程序运行起来，不至于报错<br>4.函数返回值是一个tuple，不过括号可以省略不写，因此可以返回多个值</p>
+<h2 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h2><p><strong>1.默认参数</strong></p>
+<ul>
+<li>默认参数从右向左，产生重载</li>
+<li>默认参数必须指向<strong>不变对象</strong>(*)</li>
+</ul>
+<p><strong>2.可变参数</strong></p>
+<ul>
+<li>在形参前面加上一个星号*，表示这个形参的个数不定</li>
+<li>这实际上函数接受到了一个tuple</li>
+<li>如果要传入一个已有的list或tuple作为可变参数，可以在实参前面加上星号*</li>
+</ul>
+<p><strong>3.关键字参数</strong></p>
+<ul>
+<li>在形参前面加上两个星号**</li>
+<li>可以传入任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def person(name,age,**kw):</span><br><span class="line">    print(&apos;name&apos;,name,&apos;age&apos;,age,&apos;other&apos;,kw)</span><br><span class="line">###########################################</span><br><span class="line">#在调用时可以只传入必选参数</span><br><span class="line">person(&apos;torcy&apos;,19)</span><br><span class="line">#也可以传入任意个关键字参数</span><br><span class="line">person(&apos;torcy&apos;,20,gender=&apos;male&apos;)</span><br><span class="line">#当然如果已有一个dict，也可加上**传入函数</span><br><span class="line">d = &#123;&apos;city&apos;:&apos;hz&apos;,&apos;job&apos;:&apos;student&apos;&#125;</span><br><span class="line">person(&apos;torcy&apos;,20,**d)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>4.命名关键字参数</strong></p>
+<ul>
+<li>由于关键字参数可以传入任意的参数，但是我们希望限制传入的参数的名字，只接受这些参数</li>
+<li>命名关键字形参必须是以key-value的形式，即必须带上参数名</li>
+<li>如果已经有了一个可变参数，就可以不使用*分隔符<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def person2(name,age,*,city,job)</span><br><span class="line">    print(name,age,city,job)</span><br><span class="line">#*作为一个分隔符，后面的形参被视作命名关键字参数</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>5.参数组合</strong><br>定义参数的顺序是<strong>必选参数、默认参数、可变参数、关键字参数、命名关键字参数</strong></p>
+<h2 id="切片slice"><a href="#切片slice" class="headerlink" title="切片slice"></a>切片slice</h2><p>1.对string、list、tuple均生效<br>2.如<code>L=[1,2,3,4,5,6,7,8,9,0]</code></p>
+<ul>
+<li>L[0:5]——取出索引为0,1,2,3,4的元素，含头不含尾</li>
+<li>L[:3]——前面的0可以省略</li>
+<li>L[4:]——后一个索引省略，表示取出后面所有的</li>
+<li>L[-4:]——取出倒数第四个和后面所有的</li>
+<li>L[-2:-1]——取出倒数第二个</li>
+</ul>
+<p>3.上述索引的步长默认为1，也可以指定步长</p>
+<ul>
+<li>L[1:4:2]——从第1个元素开始，取到第4个元素，步长为2</li>
+<li>L[::2]——取出第奇数个元素</li>
+<li>L[1::2]——取出第偶数个元素</li>
+</ul>
+<h2 id="迭代iteration"><a href="#迭代iteration" class="headerlink" title="迭代iteration"></a>迭代iteration</h2><p>1.可以使用for……in循环来遍历一个可迭代对象——迭代<br>2.这个对象可以是<br>①list<br>②tuple<br>③string<br>④dict</p>
+<ul>
+<li>默认只迭代key</li>
+<li><code>for val in d.values()</code>——只迭代value</li>
+<li><code>for k,v in d.items()</code>——迭代key和value</li>
+</ul>
+<p>3.判断一个元素是否是可迭代对象</p>
+<blockquote>
+<p>通过collections模块中的Iterable类型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from collections import Iterable</span><br><span class="line">isinstance(&apos;abc&apos;,Iterable) #True</span><br><span class="line">isinstance(123,Iterable) #False</span><br></pre></td></tr></table></figure>
+
+<h2 id="列表生成式"><a href="#列表生成式" class="headerlink" title="列表生成式"></a>列表生成式</h2><p>1.可以用来生成list的方法<br>2.几个栗子</p>
+<ul>
+<li>生成list[1,2,3,4,5,6,7,8,9,10]<ul>
+<li><code>list(range(1,11))</code>——实际上是类型转换</li>
+</ul>
+</li>
+<li>生成[1,4,9,16,25,…,100]<ul>
+<li><code>[x*x for x in range(1,11)]</code></li>
+</ul>
+</li>
+<li>生成[4,16,36,64,100]<ul>
+<li><code>[x*x for x in range(1,11) if not x%2]</code></li>
+</ul>
+</li>
+<li>生成[‘AX’, ‘AY’, ‘AZ’, ‘BX’, ‘BY’, ‘BZ’, ‘CX’, ‘CY’, ‘CZ’]全排列<ul>
+<li><code>[a+b for a in &#39;ABC&#39; for b in &#39;XYZ&#39;]</code></li>
+</ul>
+</li>
+<li>把一个list中字符串全部变成小写<ul>
+<li><code>[s.lower() for s in L]</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h2><p>1.list生成式可以一次性生成整个list，但如果我们只是暂时想使用前面的几个元素，以后有可能会使用该list的后面的元素，如果一次性就生成整个list，会造成空间的浪费</p>
+<p>2.所以我们需要报存生成这个list的方法，以便于在需要的时候扩展这个list</p>
+<p>3.这个问题的解决办法就是使用<strong>生成器</strong></p>
+<p>4.将列表生成式中的<code>[]</code>改成<code>()</code>就会生成一个generator</p>
+<p>5.generator是一个可迭代对象，使用for循环迭代，无需关心其边界，否则可以使用<code>next(g)</code>方法来访问下一个元素</p>
+<p>6.如果要用来生成算法比较复杂，就要考虑使用<strong>生成器函数</strong>了</p>
+<blockquote>
+<p>任何一个函数体中，只要出现了yield关键字，就将这个函数变成了<strong>生成器函数</strong></p>
+</blockquote>
+<p>一个栗子：</p>
+<ul>
+<li><p>fibonacci数列生成的普通函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def fib(max):</span><br><span class="line">  n,a,b = 0,0,1</span><br><span class="line">  while n &lt; max:</span><br><span class="line">    print(b)</span><br><span class="line">    a,b = b,a+b</span><br><span class="line">    n = n + 1</span><br><span class="line">  return &apos;done&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>fibonacci数列生成的生成器函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def fib(max):</span><br><span class="line">  n,a,b = 0,0,1</span><br><span class="line">  while n &lt; max:</span><br><span class="line">    field b</span><br><span class="line">    a,b = b,a+b</span><br><span class="line">    n = n + 1</span><br><span class="line">  return &apos;done&apos;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>7.生成器函数的执行流程与普通函数有所区别<br>普通函数：</p>
+<ul>
+<li>通过函数名调用时顺序执行，遇到return或者函数末尾就返回</li>
+</ul>
+<p>生成器函数：</p>
+<ul>
+<li>只在调用next()时才执行，遇到yield语句就返回，下一次next()的调用从上次返回的yield语句处继续执行</li>
+<li>使用for循环来代替单独调用next()<h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2></li>
+</ul>
+<p>1.可以被next()函数调用并不断返回下一个值的对象称为迭代器Iterator</p>
+<p>2.可以使用isinstance()判断一个对象是否是Iterator对象</p>
+<p>3.一个对象可能是Iterable的，但不是Iterator对象，如list，dict，str</p>
+<p>4.可以使用iter函数将Iterable的对象转换成Iterator对象</p>
+<p>5.你可能会问，为什么list、dict、str等数据类型不是Iterator？</p>
+<ul>
+<li>这是因为Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，直到没有数据时抛出StopIteration错误。</li>
+<li>可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。</li>
+<li>Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的</li>
+</ul>
+<hr>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/Python/">Python</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/12/Python修炼：常用方法/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Python修炼：常用方法类型</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/12/Python修炼：函数高级/">
+        <span class="next-text nav-default">Python修炼：函数高级</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">Lollipop43.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
