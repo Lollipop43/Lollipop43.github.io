@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="JavaScript高级">
+
+
+
+
+  <meta name="keywords" content="JavaScript,">
+
+
+
+
+
+  <link rel="alternate" href="/default" title="归">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://yoursite.com/2019/08/11/JavaScript高级/">
+
+
+<meta name="description" content="JavaScript高级知识整理">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript高级">
+<meta property="og:url" content="http://yoursite.com/2019/08/11/JavaScript高级/index.html">
+<meta property="og:site_name" content="归">
+<meta property="og:description" content="JavaScript高级知识整理">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-22T08:31:08.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript高级">
+<meta name="twitter:description" content="JavaScript高级知识整理">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> JavaScript高级 - 归 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">归</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          JavaScript高级
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 11 2019
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>JavaScript高级知识整理</p>
+<a id="more"></a>
+
+<p>1.复制整个数组<code>arr2 = arr1.slice()</code></p>
+<p>2.正则表达式若是固定的使用//创建，若是动态的使用new RegExp()创建</p>
+<p>3.Object.create()基于父对象，创建子对象，并扩展自有对象</p>
+<p>4.bind方法的实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!(<span class="string">"bind"</span> <span class="keyword">in</span> <span class="built_in">Function</span>.prototype))&#123;</span><br><span class="line">    <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">obj<span class="regexp">/*,args1*/</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> fun = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">var</span> args1 = <span class="built_in">arguments</span>;</span><br><span class="line">        <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"><span class="regexp">/*args2*/</span></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> args2 = <span class="built_in">arguments</span>;</span><br><span class="line">            <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">            fun.apply(obj, args1.concat(args2));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>5.rest和arguments</p>
+<p>arguments的问题：</p>
+<ul>
+<li>总是获得全部参数，不能有选择的获得部分</li>
+<li>是类数组对象，不是纯正的数组</li>
+</ul>
+<p>重写上述的bind方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!(<span class="string">"bind"</span> <span class="keyword">in</span> <span class="built_in">Function</span>.prototype))&#123;</span><br><span class="line">    <span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">obj,...args1</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> fun = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">...args2</span>)</span>&#123;</span><br><span class="line">            fun.apply(obj, args1.concat(args2));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>6.散播：用…打散数组为单个元素</p>
+<ul>
+<li>需要的参数是数组，而已有的参数是数组</li>
+</ul>
+<p>7.Promise</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error)&#123;</span><br><span class="line">            reject(<span class="string">"error"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">connect().then(query).then(response).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果有一个then错误，则抛出错误且程序终止，所以catch应该放在最后</li>
+</ul>
+<p>8.var，let，const都会进行变量提升，但是var会自动赋值为undefined，但是let和const不会，只要在赋值之前引用就会报ReferenceError</p>
+<p>9.箭头函数的this指向当前作用域而不是绑定到原来的对象</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/JavaScript/">JavaScript</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/12/8086汇编读书笔记/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">8086汇编读书笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/11/JavaScript基础/">
+        <span class="next-text nav-default">JavaScript基础</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2019
+    <span class="footer-author">Lollipop43.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
