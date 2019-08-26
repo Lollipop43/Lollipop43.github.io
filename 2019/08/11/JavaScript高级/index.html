@@ -43,7 +43,7 @@
 <meta property="og:site_name" content="归">
 <meta property="og:description" content="JavaScript高级知识整理">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-22T08:31:08.475Z">
+<meta property="og:updated_time" content="2019-08-26T15:47:09.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript高级">
 <meta name="twitter:description" content="JavaScript高级知识整理">
@@ -133,6 +133,481 @@
             <p>JavaScript高级知识整理</p>
 <a id="more"></a>
 
+<h3 id="let和const"><a href="#let和const" class="headerlink" title="let和const"></a>let和const</h3><p>1.一个代码块中存在let语句，若在let语句之前引用变量，则会报错ReferenceError</p>
+<ul>
+<li>暂时性死区：只要进入当前作用域，变量就已经存在了，但是不可引用</li>
+</ul>
+<p>2.let不允许在同一个作用域内，重复声明同一个变量</p>
+<p>3.如果不写大括号，则不存在块级作用域；应尽量在块级作用域中书写函数表达式，而不是函数声明语句</p>
+<p>4.const语句只声明不赋值，会报错SyntaxError</p>
+<p>5.const对象只能保证该变量不能指向其他对象，即地址是常量，而依然可以修改该对象</p>
+<ul>
+<li>要想冻结一个对象，应该使用Object.freeze方法</li>
+</ul>
+<p>6.ES6声明变量的6中方式</p>
+<ul>
+<li>var，function，let，const，import，class</li>
+</ul>
+<h3 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line"><span class="keyword">let</span> a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>1.从数组和对象中提取值，对变量进行赋值——解构赋值</p>
+<p>2.允许指定默认值；只有某个位置的值===undefined才会赋默认值</p>
+<p>3.数组的解构赋值按照下标次序对应，而对象的解构赋值属性名必须相同，否则赋值失败成为undefined</p>
+<p>4.可以直接赋值为某个对象，则会将对象上的方法赋值到左边的变量上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例一</span></span><br><span class="line"><span class="keyword">let</span> &#123; log, sin, cos &#125; = <span class="built_in">Math</span>;</span><br><span class="line"><span class="comment">// 例二</span></span><br><span class="line"><span class="keyword">const</span> &#123; log &#125; = <span class="built_in">console</span>;</span><br><span class="line">log(<span class="string">'hello'</span>) <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>对象的解构赋值实际上是如下形式的简写</p>
+<p><code>let {foo: foo, bar: bar} = {foo: &#39;aaa&#39;, bar: &#39;bbb&#39;}</code></p>
+</li>
+</ul>
+<p>5.解构赋值的用途：</p>
+<ul>
+<li>交换变量的值</li>
+<li>从函数返回多个值</li>
+<li>函数参数的默认值</li>
+</ul>
+<h3 id="字符串的扩展"><a href="#字符串的扩展" class="headerlink" title="字符串的扩展"></a>字符串的扩展</h3><h4 id="新增方法"><a href="#新增方法" class="headerlink" title="新增方法"></a>新增方法</h4><ul>
+<li>‘….’.includes(‘…’)——返回布尔值，表示是否找到参数字符串</li>
+<li>‘….’.startsWith(‘…’)——返回布尔值，表示是否以参数字符串开头</li>
+<li>‘….’.endsWith(‘…’)——返回布尔值，表示是否以参数字符串结尾<ul>
+<li>这三个方法都支持第二个参数，表示开始搜索的起始位置</li>
+</ul>
+</li>
+<li>‘….’.repeat(3)——表示将字符串重复3次返回</li>
+<li>‘….’.padStart(指定长度, ‘…’)——使用子字符串补全至指定长度，从头开始</li>
+<li>‘….’.padEnd(指定长度, ‘…’)——使用子字符串补全至指定长度，从末尾开始</li>
+</ul>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><p>1.表示多行字符串，其中的空格和换行都会被保留</p>
+<p>2.嵌入变量，将变量名写在${}中，大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性，还可以调用函数</p>
+<p>3.标签模板：跟在一个函数名后面，作为参数传入函数被调用</p>
+<ul>
+<li><p>如果模板字符串中有变量，就不是简单的调用了，而是会将模板字符串先处理成多个参数，再调用函数</p>
+</li>
+<li><p>此时传入的参数包含多个值</p>
+<ul>
+<li>第一个参数是模板字符串中<strong>不包含</strong>变量的部分组成的数组</li>
+<li>剩余的参数是变量被替换后的值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func<span class="string">`Hello <span class="subst">$&#123;a+b&#125;</span> world \$&#123;a*b&#125;`</span></span><br><span class="line">等同于</span><br><span class="line">func([<span class="string">'Hello '</span>, <span class="string">' world '</span>, <span class="string">''</span>], <span class="number">15</span>, <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>数组的成员是：</p>
+<p>开头与变量1之间，变量1与变量2之间，变量2与变量3之间，变量3与末尾之间</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="正则的扩展"><a href="#正则的扩展" class="headerlink" title="正则的扩展"></a>正则的扩展</h3><p>1.正则表达式的参数：</p>
+<ul>
+<li><code>new RegExp(&#39;xyz&#39;, &#39;ig&#39;)</code></li>
+<li><code>new RegExp(/xyz/ig)</code></li>
+</ul>
+<p>2.与字符串相关的实例方法：match，replace，search，split全部调用RegExp对象上的方法</p>
+<p>3.先行断言</p>
+<ul>
+<li><p>x只有<strong>在y前面</strong>才匹配——<code>/x(?=y)/</code></p>
+<p>如只匹配%之前的数字：<code>/\d(?=%)/</code></p>
+</li>
+<li><p>先行否定断言</p>
+<ul>
+<li>x只有<strong>不在y前面</strong>才匹配——<code>/x(?!y)/</code></li>
+</ul>
+</li>
+</ul>
+<p>4.后行断言</p>
+<ul>
+<li><p>x只有<strong>在y后面</strong>才匹配——<code>/(?&lt;=y)x/</code></p>
+</li>
+<li><p>后行否定断言</p>
+<ul>
+<li><p>x只有不在y后面才匹配——<code>/(?&lt;!y)x/</code></p>
+<p>只匹配不在美元符号后面的数字：<code>/(?&lt;!\$)\d+/</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>5.如果在一个正则表达式中有多个匹配</p>
+<p>方法一：</p>
+<p>一般使用g修饰符在循环中逐一取出</p>
+<p>方法二：</p>
+<p>String.prototype.matchAll</p>
+<ul>
+<li>string.matchAll(regexp)——返回一个遍历器，可以使用for…of循环取出</li>
+</ul>
+<h3 id="函数的扩展"><a href="#函数的扩展" class="headerlink" title="函数的扩展"></a>函数的扩展</h3><p>1.参数的默认值</p>
+<ul>
+<li>undefined可以触发函数参数的默认值</li>
+</ul>
+<p>2.如何定义必须提供参数的函数：</p>
+<ul>
+<li><p>将参数的默认值设置为抛出错误</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"> mustBeProvided = throwIfMissing(</span>) )</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throwIfMissing</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'missing parameter'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>3.rest参数</p>
+<ul>
+<li><p><code>function add(...values) {}</code></p>
+<p>values是一个数组，可以避免使用arguments</p>
+</li>
+<li><p>rest参数之后不能有其他参数</p>
+</li>
+</ul>
+<p>4.name属性返回该函数的函数名</p>
+<ul>
+<li><p>function foo() {}</p>
+<p>foo.name === “foo”</p>
+</li>
+</ul>
+<p>5.bind返回的函数，name属性会加上bound前缀</p>
+<ul>
+<li><p>function foo() {}</p>
+<p>foo.bind({}).name === “bound foo”</p>
+</li>
+</ul>
+<p>6.函数参数的尾逗号</p>
+<h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>1.如果返回一个对象，则应该加上（）</p>
+<p>2.简化了回调函数的书写方式</p>
+<p>3.注意事项：</p>
+<ul>
+<li>函数体内的this是<strong>定义时</strong>所在的对象，而不是使用时所在的对象<ul>
+<li>this的指向是不可修改的，并不是箭头函数的this不可修改，而是根本没有this，所以只能使用定义时的对象</li>
+</ul>
+</li>
+<li>不可以使用arguments对象</li>
+</ul>
+<p>4.对象内的方法不能使用箭头函数，因为对象不构成作用域，没有this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cat = &#123;</span><br><span class="line">    lives: <span class="number">9</span>,</span><br><span class="line">    jumps: <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lives--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里的this指向全局对象</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="尾调用优化"><a href="#尾调用优化" class="headerlink" title="尾调用优化"></a><a href="http://es6.ruanyifeng.com/#docs/function#尾调用优化" target="_blank" rel="noopener">尾调用优化</a></h3><h3 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a><a href="http://es6.ruanyifeng.com/#docs/function#尾递归" target="_blank" rel="noopener">尾递归</a></h3><h3 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h3><p>1.扩展运算符：…</p>
+<ul>
+<li><p>将一个数组打散为用逗号分隔的参数序列</p>
+<p><code>console.log(...[1,2,3])</code>//1 2 3</p>
+</li>
+<li><p>替代函数的apply方法</p>
+<p>如，<code>Math.max.apply(null, [14, 3, 67])</code></p>
+<p>可以写成：<code>Math.max(...[14, 3, 67])</code></p>
+</li>
+<li><p>将一个数组添加到另一个数组的尾部</p>
+<p>如，<code>Array.prototype.push.apply(arr1, arr2)</code></p>
+<p>可以写成：<code>arr1.push(...arr2)</code></p>
+</li>
+<li><p>复制数组</p>
+<p>如，<code>arr2 = arr1.slice()</code></p>
+<p>可以写成：arr2 = […arr1]</p>
+</li>
+</ul>
+<p>2.扩展的方法</p>
+<ul>
+<li><p>Array.from( array-like object, function (x){} )</p>
+<p>将一个类数组对象转换为数组，将空位转换成undefined</p>
+</li>
+<li><p>Array.of (参数)</p>
+<p>总是返回参数值组成的数组，如果没有参数，就返回一个空数组</p>
+</li>
+<li><p><code>arr.find( function (val, idx, arr) {} ， thisObj)</code></p>
+<p>返回第一个符合条件的数组成员，thisObj用来绑定回调函数的this对象</p>
+</li>
+<li><p><code>arr.findIndex( function (val, idx, arr) {} ， thisObj)</code></p>
+<p>返回第一个符合条件的数组成员的下标，thisObj用来绑定回调函数的this对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">v</span>) </span>&#123; <span class="keyword">return</span> v &gt; <span class="keyword">this</span>.age&#125;</span><br><span class="line"><span class="keyword">let</span> person = &#123;<span class="attr">name</span>: <span class="string">'john'</span>, <span class="attr">age</span>: <span class="number">20</span>&#125;;</span><br><span class="line">[<span class="number">10</span>,<span class="number">12</span>,<span class="number">24</span>,<span class="number">15</span>].find(f, person);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>arr.fill(4)</code></p>
+<p>初始化填充一个数组</p>
+</li>
+<li><p>arr.keys()</p>
+<p>返回键名的遍历器对象</p>
+</li>
+<li><p>arr.values()</p>
+<p>返回键值的遍历器对象</p>
+</li>
+<li><p>arr.entries()</p>
+<p>返回键值对的遍历器对象</p>
+</li>
+<li><p>arr.includes(x)</p>
+<p>检查数组是否包含某个值</p>
+</li>
+<li><p><code>arr.flat(Infinity)</code></p>
+<p>将嵌套数组拉平成一个一维数组，跳过空位</p>
+</li>
+</ul>
+<h3 id="对象的扩展"><a href="#对象的扩展" class="headerlink" title="对象的扩展"></a>对象的扩展</h3><p>1.属性的简写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="string">'bar'</span>;</span><br><span class="line"><span class="keyword">const</span> baz = &#123;foo&#125;;</span><br><span class="line">baz<span class="comment">//&#123;foo: 'bar'&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>属性名为变量名，属性值为变量值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPoint</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> x = <span class="number">1</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;x,y&#125;</span><br><span class="line">&#125;</span><br><span class="line">getPoint();<span class="comment">//&#123;x: 1, y: 10&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.方法的简写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    method: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//简写成</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    method()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.属性的遍历</p>
+<ul>
+<li>for…in</li>
+<li>Object.keys(obj)</li>
+<li>Object.getOwnPropertyNames(obj)</li>
+<li>Object.getOwnPropertySymbols(obj)</li>
+<li>Reflect.ownKeys(obj)</li>
+</ul>
+<p>4.新增方法</p>
+<ul>
+<li><p>Object.is(a,b)</p>
+<p>比较a和b的值是否相等</p>
+<ul>
+<li><p>与 === 唯一的不同之处就是：+0 不等于 -0；NaN等于NaN</p>
+</li>
+<li><p>可以自定义Object.is</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Object</span>, <span class="string">'is'</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x === <span class="number">0</span> &amp;&amp; y === <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>/x === <span class="number">1</span>/y</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x !== x &amp;&amp; y !== y;</span><br><span class="line">    &#125;,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>Object.assign(target, source1, source2)</code></p>
+<p>合并对象，同名属性覆盖（只拷贝自身属性或可枚举属性）</p>
+<ul>
+<li><p>为对象添加属性</p>
+</li>
+<li><p>为对象添加方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(someClass.prototype, &#123;</span><br><span class="line">    someMethod(arg)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    anotherMethod(arg)&#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">SomeClass.prototype.someMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">SomeClass.prototype.anotherMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="第七种数据类型：Symbol"><a href="#第七种数据类型：Symbol" class="headerlink" title="第七种数据类型：Symbol"></a>第七种数据类型：Symbol</h3><blockquote>
+<p>对象的属性名都是字符串，容易冲突</p>
+<p>Symbol是一种类似于字符串的数据类型</p>
+</blockquote>
+<p>1.let s = Symbol(‘…’);</p>
+<ul>
+<li>不能使用new命令</li>
+<li>可以使用字符串参数作为描述，相同参数的symbol值是不同的</li>
+<li>symbol值不能与其他类型的值进行运算</li>
+<li>可以转为字符串或者boolean</li>
+</ul>
+<p>2.实例属性description返回symbol的字符串描述</p>
+<p>3.由于每个symbol的值都是不同的，所以symbol可以作为标识符，用于对象的属性名</p>
+<ul>
+<li>作为属性名的symbol值不能使用点运算符，必须使用[]</li>
+</ul>
+<p>4.可以给常量赋值为symbol值，这样可以保证每个常量值都不同的</p>
+<p>5.有时，我们希望重新使用同一个symbol值，Symbol.for(‘..’)可以做到这一点</p>
+<ul>
+<li><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s1 = <span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>);</span><br><span class="line"><span class="keyword">let</span> s2 = <span class="built_in">Symbol</span>.for(<span class="string">'foo'</span>);</span><br><span class="line">s1 === s2 <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>Symbol()和Symbol.for()都会产生新的symbol值，后者会被保留在全局中供查询，前者不会</p>
+</li>
+<li><p>Symbol.keyFor(s)</p>
+<p>返回一个保留在全局中的symbol值的字符串描述</p>
+</li>
+</ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><blockquote>
+<p>类似于数组，但是成员的值是唯一的，没有重复的值</p>
+</blockquote>
+<p>1.实例方法：</p>
+<ul>
+<li>add(value)</li>
+<li>delete(value)</li>
+<li>has(value)</li>
+<li>clear()</li>
+</ul>
+<p>2.遍历：遍历顺序和插入顺序一样</p>
+<ul>
+<li>.keys()</li>
+<li>.values()</li>
+<li>.entries()</li>
+<li>.forEach(function (value, idx, set) {} )</li>
+</ul>
+<p>3.<code>Array.from(new Set())</code>可以将set转为数组</p>
+<ul>
+<li>数组去重：[…new Set(arr)]</li>
+<li>字符串去重：[…new Set(str)].join(‘’)</li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><blockquote>
+<p>对象：字符串——值</p>
+<p>Map：值——值</p>
+</blockquote>
+<p>1.实例属性和方法：</p>
+<ul>
+<li>m.set(key, value)</li>
+<li>m.get(key)</li>
+<li>m.has(key)</li>
+<li>m.delete(key)</li>
+<li>m.clear()</li>
+<li>m.size</li>
+</ul>
+<p>2.遍历：遍历顺序和插入顺序一样</p>
+<ul>
+<li>.keys()</li>
+<li>.values()</li>
+<li>.entries()</li>
+<li>.forEach(function (value, idx, set) {} )</li>
+</ul>
+<h3 id="Iterator遍历器"><a href="#Iterator遍历器" class="headerlink" title="Iterator遍历器"></a>Iterator遍历器</h3><blockquote>
+<p>任何数据结构只要有Iterator接口，就可以完成遍历操作</p>
+</blockquote>
+<p>1.Iterator 的遍历过程是这样的</p>
+<p>（1）创建一个指针对象，指向当前数据结构的起始位置。</p>
+<p>（2）第一次调用指针对象的<code>next</code>方法，将指针指向第一个成员。</p>
+<p>（3）第二次调用指针对象的<code>next</code>方法，指针就指向第二个成员。</p>
+<p>（4）不断调用指针对象的<code>next</code>方法，直到它指向数据结构的结束位置。</p>
+<ul>
+<li>调用next方法会返回一个对象，包含value和done两个属性</li>
+</ul>
+<p>2.一个数据结构只要具有<code>[Symbol.iterator]</code>属性，就可以认为是“可遍历的”</p>
+<h3 id="Generator函数"><a href="#Generator函数" class="headerlink" title="Generator函数"></a>Generator函数</h3><p>Generator函数是一个状态机，执行它就会返回一个遍历器对象，调用.next()方法依次遍历函数内部的每一个状态。</p>
+<blockquote>
+<p>①function关键字与函数名之间有一个*</p>
+<p>②函数体内使用yield表达式定义不同的内部状态</p>
+</blockquote>
+<h3 id="async函数"><a href="#async函数" class="headerlink" title="async函数"></a>async函数</h3><blockquote>
+<p>async函数就是Generator函数的语法糖：</p>
+<p>​    将Generator函数的*换成async，将yield换成await</p>
+</blockquote>
+<p>1.async函数对Generator函数的改进：</p>
+<ul>
+<li>内置执行器<ul>
+<li>Generator函数需要调用next方法，async函数不需要</li>
+</ul>
+</li>
+<li>更好的语义</li>
+<li>更广的适用性<ul>
+<li><code>co</code>模块约定，<code>yield</code>命令后面只能是 Thunk 函数或 Promise 对象，而<code>async</code>函数的<code>await</code>命令后面，可以是 Promise 对象和原始类型的值</li>
+</ul>
+</li>
+<li>返回值是promise对象<ul>
+<li>await就是then命令的语法糖</li>
+</ul>
+</li>
+</ul>
+<p>2.async函数返回的是promise对象，函数内部return语句返回的值会成为then方法回调函数的参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123; <span class="keyword">return</span> <span class="string">'hello'</span>; &#125;</span><br><span class="line">f().then(<span class="function"><span class="params">v</span>=&gt;</span><span class="built_in">console</span>.log(v))</span><br><span class="line"><span class="comment">//'hello'</span></span><br></pre></td></tr></table></figure>
+
+<p>async函数内部抛出错误，会被catch方法回调函数接收到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"error"</span>); &#125;</span><br><span class="line">f().then().catch(<span class="function"><span class="params">e</span>=&gt;</span><span class="built_in">console</span>.log(e));</span><br><span class="line"><span class="comment">//'error'</span></span><br></pre></td></tr></table></figure>
+
+<p>3.只有全部执行完async函数里面的异步操作，才会执行then方法里面的回调函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getTitle</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(url);</span><br><span class="line">  <span class="keyword">let</span> html = <span class="keyword">await</span> response.text();</span><br><span class="line">  <span class="keyword">return</span> html.match(<span class="regexp">/&lt;title&gt;([\s\S]+)&lt;\/title&gt;/i</span>)[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line">getTitle(<span class="string">'https://tc39.github.io/ecma262/'</span>).then(<span class="built_in">console</span>.log)</span><br><span class="line"><span class="comment">// "ECMAScript 2017 Language Specification"</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数<code>getTitle</code>内部有三个操作：抓取网页、取出文本、匹配页面标题。只有这三个操作全部完成，才会执行<code>then</code>方法里面的<code>console.log</code>。</li>
+</ul>
+<p><strong>4.async-await使用注意点：</strong></p>
+<ul>
+<li>await命令后的promise运行结果可能是rejected，所以把await命令放在try catch中</li>
+<li>多个await命令后面的异步操作，如果不存在继发关系，最好让它们同时触发<ul>
+<li><code>let [foo, bar] = await  Promise.all([getFoo(), getBar()])</code></li>
+</ul>
+</li>
+<li>await只能用在async函数之中</li>
+</ul>
+<p>5.休眠器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">interval</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    setTimeout(resolve, interval);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 用法</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">one2FiveInAsync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">    <span class="keyword">await</span> sleep(<span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">one2FiveInAsync();</span><br></pre></td></tr></table></figure>
+
+<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>1.export命令</p>
+<ul>
+<li><code>export { a as someVal, b as otherVal}</code></li>
+<li>可以使用as命令重命名</li>
+</ul>
+<p>2.import命令</p>
+<ul>
+<li><code>import { someVal as a, otherVal as b } from &#39;someJs.js&#39;</code></li>
+<li>加载的变量都是只读的</li>
+<li>具有变量提升效果</li>
+</ul>
+<h3 id="类class"><a href="#类class" class="headerlink" title="类class"></a>类class</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x, y)&#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    toString()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`( <span class="subst">$&#123;<span class="keyword">this</span>.x&#125;</span>,<span class="subst">$&#123;<span class="keyword">this</span>.y&#125;</span> )`</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>constructor就是构造方法，函数内部默认返回this对象，this关键字代表实例对象</li>
+<li>方法之间不需要逗号分隔</li>
+<li>类内部的方法都是不可枚举的，<code>Object.keys(Point.prototype)</code>无效</li>
+<li>类必须使用new调用，否则报错</li>
+<li>类的声明不会被提升到代码头部，必须保证子类在父类之后定义</li>
+</ul>
+<p>1.一次性向类添加多个方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.assign(Point.prototype, &#123;</span><br><span class="line">    toString()&#123;&#125;,</span><br><span class="line">    toValue()&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>2.取值函数和存值函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Obj</span></span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x)&#123; <span class="keyword">this</span>.val = x; &#125;</span><br><span class="line">    <span class="keyword">set</span> val(x)&#123; <span class="keyword">this</span>.val = x; &#125;</span><br><span class="line">    <span class="keyword">get</span> val() &#123; <span class="keyword">return</span> <span class="keyword">this</span>.val; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.类内部的方法如果含有this，默认指向类的实例；一旦单独使用该方法，可能由于this指向改变而报错</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Logger</span> </span>&#123;</span><br><span class="line">  printName(name = <span class="string">'there'</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.print(<span class="string">`Hello <span class="subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  print(text) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(text);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> logger = <span class="keyword">new</span> Logger();</span><br><span class="line"><span class="keyword">const</span> &#123; printName &#125; = logger;</span><br><span class="line">printName(); <span class="comment">// TypeError: Cannot read property 'print' of undefined</span></span><br><span class="line"><span class="comment">//此时this指向全局，是undefined，当然找不到print方法了</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以在constructor方法内部提供获取this的接口：<code>this.getThis = () =&gt; this;</code></li>
+</ul>
+<p><strong>4.new.target</strong></p>
+<p>构造函数如果通过new命令调用，new.target属性返回new命令作用于的那个构造函数；否则，new.target = undefined</p>
+<ul>
+<li><p>可以通过此属性定义不可实例化类，只可继承</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">new</span>.target === 类名)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"本类不可实例化"</span>)；</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h3><blockquote>
+<p>子类必须在constructor方法中调用super方法，得到父类的this对象（包括父类的属性和方法），然后再加上自己的属性和方法，成为子类的this对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x, y, color) &#123;</span><br><span class="line">        <span class="keyword">super</span>(x, y);</span><br><span class="line">        <span class="keyword">this</span>.color = color;</span><br><span class="line">    &#125;</span><br><span class="line">    toString()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.color + <span class="string">' '</span> + <span class="keyword">super</span>.toString();</span><br><span class="line">        <span class="comment">//调用父类的String()方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只有调用super方法之后才能调用父类实例，否则没有this</li>
+<li>父类的静态方法也会被子类继承</li>
+<li>Object.getPrototypeOf(子类) === 父类</li>
+</ul>
+<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><blockquote>
+<p>super关键字既可以当作<strong>函数</strong>使用，也可以当作<strong>对象</strong>使用</p>
+</blockquote>
+<p><strong>作为函数</strong></p>
+<p>1.super虽然代表了父类的构造函数，但是返回的是子类的实例</p>
+<ul>
+<li><p>即super内部的this指的是子类的实例，super()相当于</p>
+<p><code>子类.prototype.constructor.call(this)</code></p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">new</span>.target.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">new</span> A() <span class="comment">// A</span></span><br><span class="line"><span class="keyword">new</span> B() <span class="comment">// B</span></span><br></pre></td></tr></table></figure>
+
+<p>2.作为函数的super只能出现在子类的构造函数之中</p>
+<p><strong>作为对象</strong></p>
+<p><strong>①在普通方法中，指向父类的原型对象</strong></p>
+<ul>
+<li><p>子类普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123; <span class="keyword">this</span>.x = <span class="number">1</span>; &#125;</span><br><span class="line">  print() &#123; <span class="built_in">console</span>.log(<span class="keyword">this</span>.x); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.x = <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  m() &#123; </span><br><span class="line">      <span class="keyword">super</span>.print(); <span class="comment">//2</span></span><br><span class="line">	  <span class="comment">//A.prototype.print()内部的this指向子类B的实例，所以输出2</span></span><br><span class="line">      <span class="keyword">super</span>.x;<span class="comment">//undefined</span></span><br><span class="line">      <span class="comment">//父类的原型对象上没有x，只有实例对象上有</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>②在静态方法中，指向父类</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> myMethod(msg) &#123; <span class="built_in">console</span>.log(<span class="string">'static'</span>, msg); &#125;</span><br><span class="line">  myMethod(msg) &#123; <span class="built_in">console</span>.log(<span class="string">'instance'</span>, msg); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> myMethod(msg) &#123; <span class="keyword">super</span>.myMethod(msg); &#125;</span><br><span class="line">  <span class="comment">//静态方法中super指向父类</span></span><br><span class="line">  myMethod(msg) &#123; <span class="keyword">super</span>.myMethod(msg); &#125;</span><br><span class="line">  <span class="comment">//普通方法中super指向父类的原型对象</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.myMethod(<span class="number">1</span>); <span class="comment">// static 1</span></span><br><span class="line"><span class="keyword">var</span> ch = <span class="keyword">new</span> Child();</span><br><span class="line">ch.myMethod(<span class="number">2</span>); <span class="comment">// instance 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error)&#123;</span><br><span class="line">            reject(<span class="string">"error"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//resolve和reject方法总是在本轮事件循环的末尾执行</span></span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//success</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果有一个then错误，则抛出错误且程序终止，所以catch应该放在最后</li>
+<li><strong>promise的返回结果作为参数传入.then方法的回调函数中</strong></li>
+<li><strong>then方法的返回结果仍然是一个promise对象，可以继续使用.then方法</strong></li>
+<li>promise内部的错误不会影响外部代码</li>
+<li>catch方法返回的还是一个promise对象</li>
+<li>.finally()——不管promise对象最后的状态如何，都会执行的操作</li>
+</ul>
+<p><strong>1. Promise.all([p1, p2, p3])</strong></p>
+<ul>
+<li>将多个promise实例包装成一个新的promise实例</li>
+<li>所有的都完成才算完成</li>
+</ul>
+<p><strong>2. Promise.race([p1, p2, p3])</strong></p>
+<ul>
+<li>将多个promise实例包装成一个新的promise实例</li>
+<li>只要有一个先完成就算完成</li>
+</ul>
+<p><strong>3. 应用</strong></p>
+<ul>
+<li><p>加载图片</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> preloadImage = <span class="function"><span class="keyword">function</span> (<span class="params">path</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">        img.src = path;</span><br><span class="line">        img.onload = resolve;</span><br><span class="line">        img.onerror = reject;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+
 <p>1.复制整个数组<code>arr2 = arr1.slice()</code></p>
 <p>2.正则表达式若是固定的使用//创建，若是动态的使用new RegExp()创建</p>
 <p>3.Object.create()基于父对象，创建子对象，并扩展自有对象</p>
@@ -152,14 +627,7 @@
 <ul>
 <li>需要的参数是数组，而已有的参数是数组</li>
 </ul>
-<p>7.Promise</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">connect</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (error)&#123;</span><br><span class="line">            reject(<span class="string">"error"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">connect().then(query).then(response).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如果有一个then错误，则抛出错误且程序终止，所以catch应该放在最后</li>
-</ul>
-<p>8.var，let，const都会进行变量提升，但是var会自动赋值为undefined，但是let和const不会，只要在赋值之前引用就会报ReferenceError</p>
-<p>9.箭头函数的this指向当前作用域而不是绑定到原来的对象</p>
+<p>7.var，let，const都会进行变量提升，但是var会自动赋值为undefined，但是let和const不会，只要在赋值之前引用就会报ReferenceError</p>
 
             </div>
           

@@ -44,7 +44,7 @@
 <meta property="og:description" content="JavaScript基础知识整理">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="e:%5CWebNotes%5CJavaScript%5Cfigures%5C1565493718042.png">
-<meta property="og:updated_time" content="2019-08-11T08:17:14.185Z">
+<meta property="og:updated_time" content="2019-08-24T09:32:19.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript基础">
 <meta name="twitter:description" content="JavaScript基础知识整理">
@@ -336,7 +336,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h2><ul>
+<h2 id="Number对象"><a href="#Number对象" class="headerlink" title="Number对象"></a>Number对象</h2><p>1.JavaScript能够表示的最小精度：Number.EPSILON</p>
+<ul>
 <li><p>实例方法</p>
 <ul>
 <li>toString(base)——将10进制数转换为其他进制<ul>
@@ -399,6 +400,9 @@
 <li><code>Math.exp()</code>：<code>e</code>的指数</li>
 <li><code>Math.round()</code>：四舍五入</li>
 <li><code>Math.random()</code>：随机数</li>
+<li><code>Math.trunc()</code>: 用于去除一个的小数部分</li>
+<li><code>Math.sign()</code>: 判断一个数到底是正数，负数，还是零</li>
+<li><code>Math.cbrt()</code>: 计算一个数的立方根</li>
 </ul>
 </li>
 </ul>
@@ -423,7 +427,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h2><ul>
+<h2 id="RegExp对象"><a href="#RegExp对象" class="headerlink" title="RegExp对象"></a>RegExp对象</h2><hr>
+<ul>
 <li>实例方法<ul>
 <li>test——返回布尔值</li>
 <li>exec——返回匹配成功的子串组成的数组，否则null<ul>
@@ -433,6 +438,11 @@
 <li>\1  \2   \3分别表示匹配到的组</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>实例属性<ul>
+<li>/…/.source——正则表达式的正文</li>
+<li>/…/.flags——已经设置的修饰符</li>
 </ul>
 </li>
 </ul>
