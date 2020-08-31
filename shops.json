@@ -1,0 +1,82 @@
+[
+  {
+    "pid": "1",
+    "title": "人工翻译英语智障智能显示多少文字在于我有多少牛逼之处没办法本人就是这么厉害不服你来打我啊",
+    "sc": "../assets/img/con1.jpg",
+    "name": "人工翻译英语",
+    "original": "369元",
+    "price": "50"
+  },
+  {
+    "pid": "2",
+    "title": "充气娃娃的优势在于便宜和乖巧",
+    "sc": "require('../assets/img/con2.jpg')",
+    "name": "充气娃娃",
+    "original": "1998元",
+    "price": "998"
+  },
+  {
+    "pid": "3",
+    "title": "智能水杯。能替你加温水温，改变水质",
+    "sc": "require('../assets/img/con3.png')",
+    "name": "智能水杯",
+    "original": "1008元",
+    "price": "88"
+  },
+  {
+    "pid": "4",
+    "title": "《vue.js实战教程》能帮助你快速入手vue",
+    "sc": "require('../assets/img/con4.jpg')",
+    "name": "《vue.js实战教程》",
+    "original": "258元",
+    "price": "58"
+  },
+  {
+    "pid": "5",
+    "title": "菲尔普斯专用防水机，山寨的就是牛",
+    "sc": "require('../assets/img/con1.jpg')",
+    "name": "防水手机",
+    "original": "19998元",
+    "price": "8888"
+  },
+  {
+    "pid": "6",
+    "title": "法拉利钥匙扣，你离成功人士只差一个他",
+    "sc": "require('../assets/img/con2.jpg')",
+    "name": "钥匙扣",
+    "original": "398元",
+    "price": "38"
+  },
+  {
+    "pid": "7",
+    "title": "雷碧高档饮料，喝死人都是小问题",
+    "sc": "require('../assets/img/con3.png')",
+    "name": "雷碧饮料",
+    "original": "88元",
+    "price": "18"
+  },
+  {
+    "pid": "8",
+    "title": "雪顿纯牛奶，我们不生产牛奶，我们只是牛奶的搬运工",
+    "sc": "require('../assets/img/con4.jpg')",
+    "name": "雪顿纯牛奶",
+    "original": "188元",
+    "price": "108"
+  },
+  {
+    "pid": "9",
+    "title": "《css权威指南》,用了他你就是真正的权威",
+    "sc": "require('../assets/img/con1.jpg')",
+    "name": "《css权威指南》》",
+    "original": "398元",
+    "price": "198"
+  },
+  {
+    "pid": "10",
+    "title": "中国电信光缆，几十亿人的依赖，你值得拥有",
+    "sc": "require('../assets/img/con2.jpg')",
+    "name": "中国电信光缆",
+    "original": "108888元",
+    "price": "0.08"
+  }
+]
